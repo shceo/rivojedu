@@ -1,4 +1,4 @@
-import 'package:edu/domain/blocs/splash_bloc/splash_screen_bloc.dart';
+import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
 import 'package:edu/rivojapp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

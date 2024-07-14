@@ -1,5 +1,5 @@
-import 'package:edu/domain/blocs/splash_bloc/splash_screen_bloc.dart';
-import 'package:edu/ui/pages/routes/app_routes.dart';
+import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
+import 'package:edu/src/ui/pages/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
