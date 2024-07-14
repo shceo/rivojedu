@@ -16,7 +16,7 @@ abstract final class CommonAssets {
   static const String user = '${_assetsVectors}user.svg';
 
   // Folder path
-  static const String _assetsFolder = 'assets/';
+  static const String _assetsFolder = 'lib/assets/';
   static const String _assetsImages = '${_assetsFolder}images/';
   static const String _assetsVectors = '${_assetsFolder}vectors/';
 }
