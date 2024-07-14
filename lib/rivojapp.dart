@@ -1,3 +1,4 @@
+import 'package:edu/assets/constatnts/common_assets.dart';
 import 'package:edu/src/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // color: ,
+      decoration: const BoxDecoration(
+        
+      ),
     );
   }
 }
