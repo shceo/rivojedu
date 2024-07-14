@@ -11,12 +11,11 @@ abstract final class CommonAssets {
   static const String courses = '${_assetsVectors}courses.svg';
   static const String lessons = '${_assetsVectors}lessons.svg';
   static const String rating = '${_assetsVectors}rating.svg';
-
   static const String messages = '${_assetsVectors}messages.svg';
   static const String user = '${_assetsVectors}user.svg';
 
   // Folder path
-  static const String _assetsFolder = 'assets/';
+  static const String _assetsFolder = 'lib/assets/';
   static const String _assetsImages = '${_assetsFolder}images/';
   static const String _assetsVectors = '${_assetsFolder}vectors/';
 }
