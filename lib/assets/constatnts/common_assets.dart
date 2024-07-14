@@ -4,25 +4,8 @@ abstract final class CommonAssets {
   // Example :
   // static const String newSvgIcon = '${_assetsVectors}new_svg_icon.svg';
 
-  static const String imagesIcon = '${_assetsVectors}images_icon.svg';
-
-  static const String smileIcon = '${_assetsVectors}smile_icon.svg';
-  static const String starIcon = '${_assetsVectors}star_icon.svg';
-  static const String locationIcon = '${_assetsVectors}location_icon.svg';
-
-  static const String pauseIcon = '${_assetsVectors}pause_icon.svg';
-
-  static const String plusIcon = '${_assetsVectors}plus_icon.svg';
-  static const String minusIcon = '${_assetsVectors}minus_icon.svg';
-
-  static const String infoIcon = '${_assetsVectors}info_icon.svg';
-
-  static const String clearIcon = '${_assetsVectors}clear_icon.svg';
-
   // Logos
-  static const String vkLogo = '${_assetsVectors}vk_logo.svg';
-  static const String whatsappLogo = '${_assetsVectors}whatsapp_logo.svg';
-  static const String telegramLogo = '${_assetsVectors}telegram_logo.svg';
+  static const String rivojLogo = '${_assetsVectors}rivojuz_logo.png';
 
   // Bottom nav bar assets
   static const String searchIcon = '${_assetsVectors}search_icon.svg';
