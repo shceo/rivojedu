@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-// ignore: depend_on_referenced_packages
 import 'package:equatable/equatable.dart';
 
 final class AppColors extends Equatable {
