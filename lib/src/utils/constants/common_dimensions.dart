@@ -4,15 +4,7 @@ abstract final class CommonDimensions {
   static const double extraSmall = 2;
   static const double small = 4;
   static const double medium = 8;
-  static const double mediumLarge = 12;
-   static const double mediumLargeforWeek = 13;
-  static const double large = 16;
-  static const double dateSize = 15;
-  static const double extraLarge = 32;
-  static const double superLarge = 64;
-  static const double multiLarge = 128;
-  static const double megaLarge = 256;
-
+  
   // ScreenSize
   static const double maxPhoneWidth = 500;
   static const double minDurationProgramWidth = 480;

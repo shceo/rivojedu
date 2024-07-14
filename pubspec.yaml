@@ -31,20 +31,11 @@ flutter:
   uses-material-design: true
 
   assets:
-<<<<<<< HEAD
     - lib/assets/images/
-    - lib/assets/vectors/
-    - lib/assets/videos/
-    - lib/assets/fonts/
-    
-=======
-    - assets/images/
     - lib/assets/vectors/
 #    - assets/icons/
 #    - assets/videos/
 #    - assets/fonts/
->>>>>>> 7e1138958f8bd36d910ee3da7808cbf6ee6fd25d
-
 
 
   # fonts:
