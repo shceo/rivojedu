@@ -8,12 +8,12 @@ abstract final class CommonAssets {
   static const String rivojLogo = '${_assetsVectors}rivojuz_logo.png';
 
   // Bottom nav bar assets
-  static const String searchIcon = '${_assetsVectors}search_icon.svg';
-  static const String calendarIcon = '${_assetsVectors}calendar_icon.svg';
-  static const String squareAddIcon = '${_assetsVectors}square_add_icon.svg';
-  static const String notificationIcon =
-      '${_assetsVectors}notification_icon.svg';
-  static const String menuIcon = '${_assetsVectors}menu_icon.svg';
+  static const String courses = '${_assetsVectors}courses.svg';
+  static const String lessons = '${_assetsVectors}lessons.svg';
+  static const String rating = '${_assetsVectors}rating.svg';
+
+  static const String messages = '${_assetsVectors}messages.svg';
+  static const String user = '${_assetsVectors}user.svg';
 
   // Folder path
   static const String _assetsFolder = 'assets/';
