@@ -1,4 +1,4 @@
-import 'package:edu/assets/constatnts/common_assets.dart';
+import 'package:edu/assets/constants/common_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 

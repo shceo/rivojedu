@@ -1,47 +1,8 @@
 import 'package:edu/src/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 const _white = Color(0xFFFFFFFF);
-
-const lightTheme = AppColors(
-  isDark: false,
-  whiteColor: _white,
-);
-
-
-
-const green = _green;
-const longGrey = _longGrey;
-const red = _red;
-const dark = _dark;
-const darkText = _darkText;
-const grey = _grey;
-const iron = _iron;
-const whiteSmoke = _whiteSmoke;
-const greyText = _greyText;
-const whiteGrey = _whiteGrey;
-const blackGrey = _blackGrey;
-const blue = _blue;
-const lightBlue = _lightBlue;
-const shuttleGrey = _shuttleGrey;
-const bGrey = _bGrey;
-const orang = _orang;
-const iconGrey = _iconGrey;
-const imageB = _imageB;
-const backGroundColor = _backGroundColor;
-const greySmoke = _greySmoke;
-const inputBlue = _inputBlue;
-const c7F92A0 = _c7F92A0;
-const cDE9D1 = _cDE9D1;
-const greyBackground = _greyBackground;
-const greyDark = _greyDark;
-const lightGreyDark = _lightGreydark;
-const blackDark = _blackDark;
-const lightGreen = _lightGreen;
-const lightRed = _lightRed;
-const textFieldBorder = _textFieldBorder;
-const c191c1c = _c191c1c;
-
 const _dark = Color(0xff000000);
 const _darkText = Color(0xFF262626);
 const _red = Color(0xffE33B3B);
@@ -73,3 +34,55 @@ const _blue = Color(0xFF0340F0);
 const _textFieldBorder = Color(0xFFE8E4E4);
 const _grey = Color(0xFFC7C7CC);
 const _c191c1c = Color(0xFF191c1c);
+
+const lightTheme = AppColors(
+  isDark: false,
+  whiteColor: _white,
+  green: _green,
+  longGrey: _longGrey,
+  red: _red,
+  dark: _dark,
+  darkText: _darkText,
+  grey: _grey,
+  iron: _iron,
+  whiteSmoke: _whiteSmoke,
+  greyText: _greyText,
+  whiteGrey: _whiteGrey,
+  blackGrey: _blackGrey,
+  blue: _blue,
+  lightBlue: _lightBlue,
+  shuttleGrey: _shuttleGrey,
+);
+
+const white = _white;
+const green = _green;
+const longGrey = _longGrey;
+const red = _red;
+const dark = _dark;
+const darkText = _darkText;
+const grey = _grey;
+const iron = _iron;
+const whiteSmoke = _whiteSmoke;
+const greyText = _greyText;
+const whiteGrey = _whiteGrey;
+const blackGrey = _blackGrey;
+const blue = _blue;
+const lightBlue = _lightBlue;
+const shuttleGrey = _shuttleGrey;
+const bGrey = _bGrey;
+const orang = _orang;
+const iconGrey = _iconGrey;
+const imageB = _imageB;
+const backGroundColor = _backGroundColor;
+const greySmoke = _greySmoke;
+const inputBlue = _inputBlue;
+const c7F92A0 = _c7F92A0;
+const cDE9D1 = _cDE9D1;
+const greyBackground = _greyBackground;
+const greyDark = _greyDark;
+const lightGreyDark = _lightGreydark;
+const blackDark = _blackDark;
+const lightGreen = _lightGreen;
+const lightRed = _lightRed;
+const textFieldBorder = _textFieldBorder;
+const c191c1c = _c191c1c;

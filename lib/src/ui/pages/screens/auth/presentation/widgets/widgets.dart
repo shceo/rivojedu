@@ -1,4 +1,5 @@
-import 'package:edu/assets/constatnts/common_assets.dart';
+
+import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

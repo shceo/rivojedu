@@ -1,4 +1,5 @@
-import 'package:edu/assets/constatnts/common_assets.dart';
+
+import 'package:edu/assets/constants/common_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';

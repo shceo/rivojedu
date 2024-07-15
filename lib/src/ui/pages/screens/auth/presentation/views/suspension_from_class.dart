@@ -1,4 +1,5 @@
-import 'package:edu/assets/constatnts/common_assets.dart';
+
+import 'package:edu/assets/constants/common_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../../../theme/app_themes.dart';
