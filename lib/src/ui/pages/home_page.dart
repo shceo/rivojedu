@@ -26,8 +26,8 @@ class HomePage extends StatelessWidget {
           },
           tabBar: CupertinoTabBar(
             height: 60,
-            inactiveColor: context.theme.grey,
-            activeColor: context.theme.lightBlue,
+            inactiveColor: grey,
+            activeColor: lightBlue,
             onTap: (index) {
               context.read<MainBloc>().add(
                 NavItemChangedEvent(currentIndex: index),
@@ -39,11 +39,7 @@ class HomePage extends StatelessWidget {
                 .asMap()
                 .entries
                 .map((entries) => _buildItem(
-                      context,
-                      entries.value.icon,
-                      state.currentIndex == entries.key,
-                      entries.value.title,
-                    ))
+                entries.value.icon, state.currentIndex == entries.key,entries.value.title))
                 .toList(),
           ),
         );
@@ -51,20 +47,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  BottomNavigationBarItem _buildItem(
-      BuildContext context, String icon, bool isCurrent, String title) {
-    final lightBlue = context.theme.lightBlue;
-    final grey = context.theme.grey;
-
+  BottomNavigationBarItem _buildItem(String icon, bool isCurrent,String title) {
     return BottomNavigationBarItem(
       icon: SvgPicture.asset(
         icon,
         colorFilter: ColorFilter.mode(
           isCurrent ? lightBlue : grey,
           BlendMode.srcIn,
+
         ),
       ),
       label: title,
+
     );
   }
 }
