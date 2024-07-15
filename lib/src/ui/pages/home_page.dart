@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  BottomNavigationBarItem _buildItem(String icon, bool isCurrent,String title) {
+  BottomNavigationBarItem _buildItem(String icon, isCurrent,String title) {
     return BottomNavigationBarItem(
       icon: SvgPicture.asset(
         icon,

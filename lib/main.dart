@@ -12,11 +12,13 @@ void main() {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (context) => MainBloc()),
-      BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
-    ],
-    child: const App(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => MainBloc()),
+        BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
+      ],
+      child: const App(),
+    ),
+  );
 }
