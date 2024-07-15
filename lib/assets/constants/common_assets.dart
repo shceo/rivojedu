@@ -4,8 +4,14 @@ abstract final class CommonAssets {
   // Example :
   // static const String newSvgIcon = '${_assetsVectors}new_svg_icon.svg';
 
+  static const String arrowBack = '${_assetsVectors}arrow_back.svg';
+  static const String cancel = '${_assetsVectors}cancel.svg';
+  static const String closedEye = '${_assetsVectors}closed_eye_icon.svg';
+  static const String eye = '${_assetsVectors}eye.svg';
+
   // Logos
   static const String rivojLogo = '${_assetsVectors}rivojuz_logo.png';
+  static const String cancelImage = '${_assetsVectors}cancel_image.png';
 
   // Bottom nav bar assets
   static const String courses = '${_assetsVectors}courses.svg';
