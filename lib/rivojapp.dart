@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class App extends StatelessWidget {
- 
-  const App({super.key});
+    final themeData = ThemeData(useMaterial3: true);
+   App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppNavigator.router,
-     theme: ThemeProvider.of(context).themeData,
+     theme: ThemeData(useMaterial3: true)
     );
   }
 }

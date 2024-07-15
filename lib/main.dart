@@ -18,7 +18,7 @@ void main() {
         BlocProvider(create: (context) => MainBloc()),
         BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
       ],
-      child: const App(),
+      child: App(),
     ),
   );
 }
