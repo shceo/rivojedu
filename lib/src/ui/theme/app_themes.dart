@@ -37,26 +37,37 @@ const _c191c1c = Color(0xFF191c1c);
 
 const lightTheme = AppColors(
   isDark: false,
-  whiteColor: _white, green: _green,
-
+  whiteColor: _white,
+  green: _green,
+  longGrey: _longGrey,
+  red: _red,
+  dark: _dark,
+  darkText: _darkText,
+  grey: _grey,
+  iron: _iron,
+  whiteSmoke: _whiteSmoke,
+  greyText: _greyText,
+  whiteGrey: _whiteGrey,
+  blackGrey: _blackGrey,
+  blue: _blue,
+  lightBlue: _lightBlue,
+  shuttleGrey: _shuttleGrey,
 );
 
-
-
-const green = _green;
-const longGrey = _longGrey;
-const red = _red;
-const dark = _dark;
-const darkText = _darkText;
-const grey = _grey;
-const iron = _iron;
-const whiteSmoke = _whiteSmoke;
-const greyText = _greyText;
-const whiteGrey = _whiteGrey;
-const blackGrey = _blackGrey;
-const blue = _blue;
-const lightBlue = _lightBlue;
-const shuttleGrey = _shuttleGrey;
+// const green = _green;
+// const longGrey = _longGrey;
+// const red = _red;
+// const dark = _dark;
+// const darkText = _darkText;
+// const grey = _grey;
+// const iron = _iron;
+// const whiteSmoke = _whiteSmoke;
+// const greyText = _greyText;
+// const whiteGrey = _whiteGrey;
+// const blackGrey = _blackGrey;
+// const blue = _blue;
+// const lightBlue = _lightBlue;
+// const shuttleGrey = _shuttleGrey;
 const bGrey = _bGrey;
 const orang = _orang;
 const iconGrey = _iconGrey;

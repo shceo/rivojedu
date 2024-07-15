@@ -1,3 +1,4 @@
+import 'package:edu/src/ui/theme/theme_extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,8 +26,8 @@ class HomePage extends StatelessWidget {
           },
           tabBar: CupertinoTabBar(
             height: 60,
-            inactiveColor: grey,
-            activeColor: lightBlue,
+            inactiveColor: context.theme.grey,
+            activeColor: context.theme.lightBlue,
             onTap: (index) {
               context.read<MainBloc>().add(
                 NavItemChangedEvent(currentIndex: index),
@@ -38,7 +39,11 @@ class HomePage extends StatelessWidget {
                 .asMap()
                 .entries
                 .map((entries) => _buildItem(
-                entries.value.icon, state.currentIndex == entries.key,entries.value.title))
+                      context,
+                      entries.value.icon,
+                      state.currentIndex == entries.key,
+                      entries.value.title,
+                    ))
                 .toList(),
           ),
         );
@@ -46,18 +51,20 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  BottomNavigationBarItem _buildItem(String icon, isCurrent,String title) {
+  BottomNavigationBarItem _buildItem(
+      BuildContext context, String icon, bool isCurrent, String title) {
+    final lightBlue = context.theme.lightBlue;
+    final grey = context.theme.grey;
+
     return BottomNavigationBarItem(
       icon: SvgPicture.asset(
         icon,
         colorFilter: ColorFilter.mode(
           isCurrent ? lightBlue : grey,
           BlendMode.srcIn,
-
         ),
       ),
       label: title,
-
     );
   }
 }
