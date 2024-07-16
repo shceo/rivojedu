@@ -38,7 +38,7 @@ class SuspensionFromScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 99),
-               WarningItem(
+               const WarningItem(
                 imagePath: CommonAssets.cancelImage,
                 text:
                     "Sizni darsdan chetlashririshdi!\n\nIltimos operatorga murojat qiling +998 90 111 11 11",

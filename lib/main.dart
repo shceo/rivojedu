@@ -1,7 +1,6 @@
 import 'package:edu/src/domain/blocs/nav_bloc/main_bloc.dart';
 import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
 import 'package:edu/rivojapp.dart';
-import 'package:edu/src/ui/pages/screens/auth/presentation/views/sing_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,9 +17,6 @@ void main() {
       BlocProvider(create: (context) => MainBloc()),
       BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
     ],
-    child: MaterialApp(
-      home: SignInView(),
-    ),
-    // child: const App(),
+    child: App(),
   ));
 }

@@ -1,4 +1,5 @@
 import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_back_button.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../theme/app_themes.dart';
@@ -26,12 +27,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const SizedBox(height: 60),
             Row(
               children: [
-                WBackButton(),
+                const WBackButton(),
                 Text(
                   "Parolni unutdingizmi ?",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
+                    fontSize: 28.w,
                   ),
                 ),
               ],
@@ -39,7 +41,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const SizedBox(height: 60),
             Text(
               "Telefon raqam",
-              style: TextStyle(color: dark, fontSize: 20),
+              style: TextStyle(color: dark, fontSize: 20.w),
             ),
             const SizedBox(height: 7),
             TextField(
@@ -52,7 +54,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
                 hintText: "Telefon raqamni kiriting",
-                hintStyle:TextStyle(
+                hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.7),
                   fontSize: 20,
                 ),
@@ -86,10 +88,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       child: Center(
                         child: Text(
                           'Telefon raqam kiriting!',
-                          style:TextStyle(
-                            fontSize: 18,
-                            color: Colors.black
-                          ),
+                          style: TextStyle(fontSize: 18.w, color: Colors.black),
                         ),
                       ),
                     ),

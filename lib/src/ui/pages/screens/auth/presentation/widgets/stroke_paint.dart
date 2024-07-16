@@ -56,11 +56,6 @@ enum Extrapolate {
   clampEnd,
 }
 
-/// @param: List<double> inputRage
-///
-/// @param: List<double> outputRage
-///
-/// @param: Extrapolate extrapolate =  Extrapolate.extend
 class Interpolate {
   late List<double> _x;
   late List<double> _y;
@@ -78,8 +73,6 @@ class Interpolate {
     'interpolate: the range should have more than two data points');
   }
 
-  /// execute the interpolation in the range
-  /// if the interpolation is clamped the return value will not be extended
   double eval(double val) {
     if (val <= _x.first) {
       if (extrapolate == Extrapolate.clampStart ||

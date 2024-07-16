@@ -3,16 +3,21 @@ import 'package:edu/src/ui/pages/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../utils/size/size.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
+
     return BlocListener<SplashBloc, SplashScreenState>(
       listener: (context, state) {
         if (state is AppLoaded) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            context.go(Routes.home);
+            context.go(Routes.signIn);
           });
         }
       },
