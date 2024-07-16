@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,21 +24,21 @@ class HomePage extends StatelessWidget {
             );
           },
           tabBar: CupertinoTabBar(
-            height: 60,
+            height: 82,
             inactiveColor: grey,
             activeColor: lightBlue,
             onTap: (index) {
               context.read<MainBloc>().add(
-                NavItemChangedEvent(currentIndex: index),
-              );
+                    NavItemChangedEvent(currentIndex: index),
+                  );
 
               FocusManager.instance.primaryFocus?.unfocus();
             },
             items: vmController.navItems
                 .asMap()
                 .entries
-                .map((entries) => _buildItem(
-                entries.value.icon, state.currentIndex == entries.key,entries.value.title))
+                .map((entries) => _buildItem(entries.value.icon,
+                    state.currentIndex == entries.key, entries.value.title))
                 .toList(),
           ),
         );
@@ -47,18 +46,19 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  BottomNavigationBarItem _buildItem(String icon, bool isCurrent,String title) {
+  BottomNavigationBarItem _buildItem(
+      String icon, bool isCurrent, String title) {
     return BottomNavigationBarItem(
       icon: SvgPicture.asset(
         icon,
         colorFilter: ColorFilter.mode(
           isCurrent ? lightBlue : grey,
           BlendMode.srcIn,
-
+          
         ),
       ),
       label: title,
-
+      
     );
   }
 }
