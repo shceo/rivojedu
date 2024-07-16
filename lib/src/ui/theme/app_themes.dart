@@ -34,6 +34,9 @@ const _blue = Color(0xFF0340F0);
 const _textFieldBorder = Color(0xFFE8E4E4);
 const _grey = Color(0xFFC7C7CC);
 const _c191c1c = Color(0xFF191c1c);
+const _FFD700 = Color(0xFFFFD700);
+const _C0C0C0 = Color(0xFFC0C0C0);
+const _CD7F32 = Color(0xFFCD7F32);
 
 const lightTheme = AppColors(
   isDark: false,
@@ -86,3 +89,6 @@ const lightGreen = _lightGreen;
 const lightRed = _lightRed;
 const textFieldBorder = _textFieldBorder;
 const c191c1c = _c191c1c;
+const FFD700 = _FFD700;
+const C0C0C0 = _C0C0C0;
+const CD7F32 = _CD7F32;

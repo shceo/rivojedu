@@ -8,19 +8,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (context) => MainBloc()),
-      BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ],
-    child: MaterialApp(
-      home: SignInView(),
+  );
+
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => MainBloc()),
+        BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SignInView(),
+      ),
+      // child: const App(),
     ),
-    // child: const App(),
-  ));
+  );
 }

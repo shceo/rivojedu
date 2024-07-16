@@ -2,7 +2,6 @@ import 'package:edu/src/ui/pages/screens/auth/presentation/views/reset_password.
 import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-
 import '../../../../../theme/app_themes.dart';
 import '../widgets/buton_item.dart';
 
