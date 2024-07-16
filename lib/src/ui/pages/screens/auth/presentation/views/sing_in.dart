@@ -8,10 +8,17 @@ import '../widgets/w_button.dart';
 import 'forgot_password.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SignInView extends StatelessWidget {
-  SignInView({super.key});
+class SignInView extends StatefulWidget {
+  const SignInView({super.key});
 
+  @override
+  State<SignInView> createState() => _SignInViewState();
+}
+
+class _SignInViewState extends State<SignInView> {
   final _formKey = GlobalKey<FormState>();
+
+  bool isPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +66,7 @@ class SignInView extends StatelessWidget {
               TextFieldCustom(
                 formKey: _formKey,
                 title: "Telefon raqamingizni kiriting",
-                isPassword: false,
+                isPassword: isPassword,
                 keyBoardType: TextInputType.phone,
                 maskTextInputFormatter: Formatters.phoneFormatter,
                 focusNode: null,
