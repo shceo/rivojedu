@@ -96,7 +96,7 @@ class _SignInViewState extends State<SignInView> {
                 focusNode: null,
               ),
               const Spacer(),
-              WButton(
+              WButton(     
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     UserAuth.signIn(
