@@ -1,7 +1,9 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/api/auth_swagger/auth_api.dart';
 import 'package:edu/src/ui/pages/home_page.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -96,9 +98,11 @@ class _SignInViewState extends State<SignInView> {
                 focusNode: null,
               ),
               const Spacer(),
-              WButton(
+              GestureDetector(
                 onTap: () {
-                  if (_formKey.currentState!.validate()) {
+                  if (_passwordController.text.isNotEmpty &&
+                      _phoneController.text.isNotEmpty) {
+                    debugPrint("ONTAP BUTTON");
                     UserAuth.signIn(
                       _phoneController.text,
                       _passwordController.text,
@@ -112,8 +116,22 @@ class _SignInViewState extends State<SignInView> {
                     Fluttertoast.showToast(msg: 'Такого пользователя нет');
                   }
                 },
-                text: 'Kirish',
-                textStyle: TextStyle(fontSize: 25.w, color: Colors.white),
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10.h),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.w),
+                    color: blue,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Kirish",
+                      style: TextStyle(
+                        fontSize: 25.w,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               ),
               32.getH(),
               Center(
