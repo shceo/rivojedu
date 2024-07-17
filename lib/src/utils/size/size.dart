@@ -9,14 +9,10 @@ extension SizeUtils on int {
   double get w => (this / 430) * width;
 
   SizedBox getH() {
-    return SizedBox(
-      height: (this / 932) * height,
-    );
+    return SizedBox(height: (this / 932) * height);
   }
 
   SizedBox getW() {
-    return SizedBox(
-      width: (this / 430) * width,
-    );
+    return SizedBox(width: (this / 430) * width);
   }
 }
