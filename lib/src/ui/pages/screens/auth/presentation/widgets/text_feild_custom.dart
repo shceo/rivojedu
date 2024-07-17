@@ -1,4 +1,3 @@
-
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +13,8 @@ class TextFieldCustom extends StatefulWidget {
       required this.isPassword,
       required this.keyBoardType,
       required this.maskTextInputFormatter,
-      required this.focusNode});
+      required this.focusNode,
+      required this.controller});
 
   final GlobalKey<FormState> formKey;
   final TextInputType keyBoardType;
@@ -22,6 +22,7 @@ class TextFieldCustom extends StatefulWidget {
   final bool isPassword;
   final MaskTextInputFormatter? maskTextInputFormatter;
   final FocusNode? focusNode;
+  final TextEditingController controller;
 
   @override
   State<TextFieldCustom> createState() => _TextFieldCustomState();
@@ -33,6 +34,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       decoration: InputDecoration(
         enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey)),
@@ -64,19 +66,13 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
       ),
       keyboardType: widget.keyBoardType,
       focusNode: widget.focusNode,
-      onChanged: (value) {
-        // if (widget.formKey.currentState!.validate()) {
-        //   ScaffoldMessenger.of(context).showSnackBar(
-        //     const SnackBar(content: Text('Processing Data')),
-        //   );
-        // }
-      },
+      obscureText: widget.isPassword ? obscure : false,
       inputFormatters: widget.maskTextInputFormatter != null
           ? [widget.maskTextInputFormatter!]
           : null,
       validator: (value) {
         if (widget.isPassword == true) {
-          if (value == null || value.isEmpty || value.length == 8) {
+          if (value == null || value.isEmpty || value.length < 8) {
             return 'Passwordni to\'liq kiriting';
           }
         } else {
@@ -87,7 +83,6 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           }
           return null;
         }
-
         return null;
       },
     );

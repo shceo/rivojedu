@@ -1,51 +1,28 @@
 import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
-Future<void> signIn() async {
-  final dio = Dio();
-  const url = 'http://165.232.73.1:8080/api/v1/auth/sign-in';
+class UserAuth {
+  static final Dio _dio = Dio();
+  static const String _url = 'http://165.232.73.1:8080/api/v1/auth/sign-in';
 
-  try {
-    final response = await dio.post(url, data: {
-      'phoneNumber': 'userPhone',
-      'password': 'userPassword',
-    
-    });
- 
-    if (response.statusCode == 200) {
-      // ignore: avoid_print
-      print('Успешный вход в систему: ${response.data}');
-    } else if (response.statusCode == 404) {
-      // ignore: avoid_print
-      print('Пользователь не найден: ${response.data["message"]}');
-    } else {
-      print('Неизвестная ошибка: ${response.data}');
+  static Future<void> signIn(String phoneNumber, String password) async {
+    try {
+      final response = await _dio.post(_url, data: {
+        'phoneNumber': phoneNumber,
+        'password': password,
+      });
+
+      if (response.statusCode == 200) {
+        Fluttertoast.showToast(msg: 'Успешный вход в систему');
+      } else if (response.statusCode == 404) {
+        Fluttertoast.showToast(msg: 'Пользователь не найден: ${response.data["message"]}');
+      } else {
+        Fluttertoast.showToast(msg: 'Неизвестная ошибка: ${response.data}');
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: 'Ошибка сети');
     }
-  } catch (e) {
-    // ignore: avoid_print
-   return;
   }
-}
 
-
-Future<void> signUp() async {
-  final dio = Dio();
-  const url = 'http://165.232.73.1:8080/api/v1/auth/sign-up';
-
-  try {
-    final response = await dio.post(url, data: {
-      'name': String,
-      'surname': String,
-      'phoneNumber': String,
-      'password': String,
-    });
-
-    if (response.statusCode == 200) {
-      print('Успешная регистрация: ${response.data}');
-    } else {
-      print('Ошибка при регистрации: ${response.data}');
-    }
-  } catch (e) {
-    print('Ошибка: $e');
-  }
 }

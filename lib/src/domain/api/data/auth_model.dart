@@ -4,7 +4,7 @@
   String? name;
   String? surname;
   // Null? avatar;
-  // Null? birth;
+  int? birth;
   String? phoneNumber;
   int? password;
   String? token;
@@ -14,7 +14,7 @@
       this.name,
       this.surname,
       // this.avatar,
-      // this.birth,
+      this.birth,
       this.phoneNumber,
       this.password,
       this.token});
@@ -24,7 +24,7 @@
     name = json['name'];
     surname = json['surname'];
     // avatar = json['avatar'];
-    // birth = json['birth'];
+    birth = json['birth'];
     phoneNumber = json['phoneNumber'];
     password = json['password'];
     token = json['token'];
@@ -36,7 +36,7 @@
     data['name'] = name;
     data['surname'] = surname;
     // data['avatar'] = this.avatar;
-    // data['birth'] = this.birth;
+    data['birth'] = this.birth;
     data['phoneNumber'] = phoneNumber;
     data['password'] = password;
     data['token'] = token;

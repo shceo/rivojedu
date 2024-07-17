@@ -1,8 +1,10 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/domain/api/auth_swagger/auth_api.dart';
 import 'package:edu/src/ui/pages/home_page.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../widgets/formatters.dart';
 import '../widgets/text_feild_custom.dart';
 import '../widgets/w_button.dart';
@@ -18,7 +20,8 @@ class SignInView extends StatefulWidget {
 
 class _SignInViewState extends State<SignInView> {
   final _formKey = GlobalKey<FormState>();
-
+  final _phoneController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool isPassword = false;
 
   @override
@@ -66,6 +69,7 @@ class _SignInViewState extends State<SignInView> {
               8.getH(),
               TextFieldCustom(
                 formKey: _formKey,
+                controller: _phoneController,
                 title: "Telefon raqamingizni kiriting",
                 isPassword: isPassword,
                 keyBoardType: TextInputType.phone,
@@ -84,6 +88,7 @@ class _SignInViewState extends State<SignInView> {
               8.getH(),
               TextFieldCustom(
                 formKey: _formKey,
+                controller: _passwordController,
                 title: "Parol",
                 isPassword: true,
                 keyBoardType: TextInputType.text,
@@ -93,8 +98,19 @@ class _SignInViewState extends State<SignInView> {
               const Spacer(),
               WButton(
                 onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                  if (_formKey.currentState!.validate()) {
+                    UserAuth.signIn(
+                      _phoneController.text,
+                      _passwordController.text,
+                    ).then((_) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => HomePage()),
+                      );
+                    });
+                  } else {
+                    Fluttertoast.showToast(msg: 'Такого пользователя нет');
+                  }
                 },
                 text: 'Kirish',
                 textStyle: TextStyle(fontSize: 25.w, color: Colors.white),
