@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/pages/home_page.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -91,7 +92,10 @@ class _SignInViewState extends State<SignInView> {
               ),
               const Spacer(),
               WButton(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                },
                 text: 'Kirish',
                 textStyle: TextStyle(fontSize: 25.w, color: Colors.white),
               ),

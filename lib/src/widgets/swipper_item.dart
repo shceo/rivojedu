@@ -1,4 +1,4 @@
-import 'package:edu/src/ui/pages/navbar_pages/widget/dars_item.dart';
+import 'package:edu/src/widgets/dars_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';

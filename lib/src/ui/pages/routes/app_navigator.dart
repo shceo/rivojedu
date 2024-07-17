@@ -1,5 +1,5 @@
 import 'package:edu/src/ui/pages/home_page.dart';
-import 'package:edu/src/ui/pages/navbar_pages/notification_screen.dart';
+import 'package:edu/src/ui/pages/screens/notification_screen.dart';
 import 'package:edu/src/ui/pages/routes/app_routes.dart';
 import 'package:edu/src/ui/pages/screens/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';

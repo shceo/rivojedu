@@ -1,5 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/ui/pages/navbar_pages/widget/notification_item.dart';
+import 'package:edu/src/widgets/notification_item.dart';
 import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_back_button.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,6 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/ui/pages/navbar_pages/notification_screen.dart';
-import 'package:edu/src/ui/pages/navbar_pages/widget/moduls-item.dart';
+import 'package:edu/src/ui/pages/screens/notification_screen.dart';
+import 'package:edu/src/widgets/moduls-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

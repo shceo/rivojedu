@@ -1,7 +1,7 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/ui/pages/navbar_pages/widget/best_student_item.dart';
-import 'package:edu/src/ui/pages/navbar_pages/widget/student_item.dart';
-import 'package:edu/src/ui/pages/navbar_pages/widget/swipper_item.dart';
+import 'package:edu/src/widgets/best_student_item.dart';
+import 'package:edu/src/widgets/student_item.dart';
+import 'package:edu/src/widgets/swipper_item.dart';
 import 'package:flutter/material.dart';
 
 class LessonsPage extends StatefulWidget {
