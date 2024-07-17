@@ -23,6 +23,7 @@ class Assets {
   static const String pagesHomePage = 'lib/src/ui/pages/home_page.dart';
   static const String routesAppNavigator = 'lib/src/ui/pages/routes/app_navigator.dart';
   static const String routesAppRoutes = 'lib/src/ui/pages/routes/app_routes.dart';
+  static const String sizeSize = 'lib/src/utils/size/size.dart';
   static const String splashBlocSplashScreenBloc = 'lib/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
   static const String splashBlocSplashScreenEvent = 'lib/src/domain/blocs/splash_bloc/splash_screen_event.dart';
   static const String splashBlocSplashScreenState = 'lib/src/domain/blocs/splash_bloc/splash_screen_state.dart';
