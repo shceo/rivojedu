@@ -57,7 +57,8 @@ class CoursesPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               CupertinoDialogRoute(
-                                  builder: (context) => const NotificationScreen(),
+                                  builder: (context) =>
+                                      const NotificationScreen(),
                                   context: context));
                         },
                         child: Image.asset(CommonAssets.notification,

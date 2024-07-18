@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-
 class UserAuth {
   static final Dio _dio = Dio();
   static const String _url = 'http://165.232.73.1:8080/api/v1/auth/sign-in';
@@ -16,7 +15,8 @@ class UserAuth {
       if (response.statusCode == 200) {
         Fluttertoast.showToast(msg: 'Успешный вход в систему');
       } else if (response.statusCode == 404) {
-        Fluttertoast.showToast(msg: 'Пользователь не найден: ${response.data["message"]}');
+        Fluttertoast.showToast(
+            msg: 'Пользователь не найден: ${response.data["message"]}');
       } else {
         Fluttertoast.showToast(msg: 'Неизвестная ошибка: ${response.data}');
       }
@@ -24,5 +24,4 @@ class UserAuth {
       Fluttertoast.showToast(msg: 'Ошибка сети');
     }
   }
-
 }

@@ -8,6 +8,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+  //     overlays: [SystemUiOverlay.bottom]);
+
+SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

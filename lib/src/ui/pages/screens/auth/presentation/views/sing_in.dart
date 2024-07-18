@@ -1,12 +1,13 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/api/auth_swagger/auth_api.dart';
+import 'package:edu/src/domain/api/data/auth_model.dart';
 import 'package:edu/src/ui/pages/home_page.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import '../widgets/formatters.dart';
 import '../widgets/text_feild_custom.dart';
 import '../widgets/w_button.dart';
@@ -32,7 +33,7 @@ class _SignInViewState extends State<SignInView> {
     height = MediaQuery.of(context).size.height;
     return AnnotatedRegion(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: Colors.transparent,
         statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
       ),
@@ -100,6 +101,7 @@ class _SignInViewState extends State<SignInView> {
               const Spacer(),
               GestureDetector(
                 onTap: () {
+                  print('');
                   if (_passwordController.text.isNotEmpty &&
                       _phoneController.text.isNotEmpty) {
                     debugPrint("ONTAP BUTTON");
