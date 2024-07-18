@@ -24,7 +24,7 @@ class _SignInViewState extends State<SignInView> {
   final _formKey = GlobalKey<FormState>();
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool isPassword = false;
+  bool isPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +98,7 @@ class _SignInViewState extends State<SignInView> {
                 focusNode: null,
               ),
               const Spacer(),
-<<<<<<< HEAD
-              WButton(     
-=======
               GestureDetector(
->>>>>>> 8a3bc257ec4293be7ec2219c8a830dbe8722a505
                 onTap: () {
                   if (_passwordController.text.isNotEmpty &&
                       _phoneController.text.isNotEmpty) {
@@ -116,9 +112,10 @@ class _SignInViewState extends State<SignInView> {
                         MaterialPageRoute(builder: (_) => HomePage()),
                       );
                     });
-                  } else {
-                    Fluttertoast.showToast(msg: 'Такого пользователя нет');
-                  }
+                  } 
+                  // else {
+                  //   Fluttertoast.showToast(msg: 'Такого пользователя нет');
+                  // }
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10.h),
