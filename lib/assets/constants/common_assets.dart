@@ -14,8 +14,9 @@ abstract final class CommonAssets {
   static const String star = '${_assetsImages}star 2.png';
   static const String avatar = '${_assetsImages}avatar.png';
   static const String medal1 = '${_assetsImages}medal1.png';
-  static const String medal2 = '${_assetsImages}medal 2.png';
-  static const String medal3 = '${_assetsImages}medal 3.png';
+  static const String medal2 = '${_assetsImages}medal2.png';
+  static const String medal3 = '${_assetsImages}medal3.png';
+  static const String img = '${_assetsVectors}img.png';
 
   // Logos
   static const String rivojLogo = '${_assetsVectors}rivojuz_logo.png';
@@ -28,6 +29,7 @@ abstract final class CommonAssets {
   static const String messages = '${_assetsVectors}messages.svg';
   static const String user = '${_assetsVectors}user.svg';
   static const String notification = '${_assetsVectors}notification.png';
+  static const String skalpel = '${_assetsVectors}skalpel_icon.svg';
 
   // Folder path
   static const String _assetsFolder = 'lib/assets/';

@@ -37,6 +37,10 @@ const _c191c1c = Color(0xFF191c1c);
 const _FFD700 = Color(0xFFFFD700);
 const _C0C0C0 = Color(0xFFC0C0C0);
 const _CD7F32 = Color(0xFFCD7F32);
+const _0340F0 = Color(0xFF0340F0);
+const _D7D7D7 = Color(0xFFD7D7D7);
+const _FECB17 = Color(0xFFFECB17);
+const _2F75B8 = Color(0xFF2F75B8);
 
 const lightTheme = AppColors(
   isDark: false,
@@ -92,3 +96,7 @@ const c191c1c = _c191c1c;
 const FFD700 = _FFD700;
 const C0C0C0 = _C0C0C0;
 const CD7F32 = _CD7F32;
+const c0340F0 = _0340F0;
+const D7D7D7 = _D7D7D7;
+const x2F75B8 = _2F75B8;
+const FECB17 = _FECB17;
