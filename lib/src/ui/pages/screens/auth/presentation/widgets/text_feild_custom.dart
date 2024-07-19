@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -6,15 +7,16 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'my_function.dart';
 
 class TextFieldCustom extends StatefulWidget {
-  const TextFieldCustom(
-      {super.key,
-      required this.formKey,
-      required this.title,
-      required this.isPassword,
-      required this.keyBoardType,
-      required this.maskTextInputFormatter,
-      required this.focusNode,
-      required this.controller});
+  const TextFieldCustom({
+    super.key,
+    required this.formKey,
+    required this.title,
+    required this.isPassword,
+    required this.keyBoardType,
+    required this.maskTextInputFormatter,
+    required this.focusNode,
+    required this.controller,
+  });
 
   final GlobalKey<FormState> formKey;
   final TextInputType keyBoardType;
@@ -37,27 +39,32 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
       controller: widget.controller,
       decoration: InputDecoration(
         enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey)),
+          borderSide: BorderSide(color: Colors.grey),
+        ),
         focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black)),
-        errorBorder:
-            const OutlineInputBorder(borderSide: BorderSide(color: Colors.red)),
-        focusedErrorBorder:
-            const OutlineInputBorder(borderSide: BorderSide(color: Colors.red)),
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: (10), horizontal: (15)),
+          borderSide: BorderSide(color: Colors.black),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+        ),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.red),
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
         hintText: widget.title,
         hintStyle: TextStyle(color: Colors.grey.shade500, fontSize: 14),
         border: InputBorder.none,
         suffixIcon: widget.isPassword == true
             ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    obscure = !obscure;
-                  });
-                },
-                icon: SvgPicture.asset(
-                    obscure ? CommonAssets.eye : CommonAssets.closedEye))
+          onPressed: () {
+            setState(() {
+              obscure = !obscure;
+            });
+          },
+          icon: SvgPicture.asset(
+            obscure ? CommonAssets.eye : CommonAssets.closedEye,
+          ),
+        )
             : null,
       ),
       style: const TextStyle(
@@ -81,7 +88,6 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
           } else if (!MyFunctions.validatePhoneNumber(value)) {
             return 'Raqam noto\'g\'ri formatda';
           }
-          return null;
         }
         return null;
       },

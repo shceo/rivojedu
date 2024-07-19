@@ -7,7 +7,7 @@ abstract final class CommonAssets {
   static const String arrowBack = '${_assetsVectors}arrow_back.svg';
   static const String cancel = '${_assetsVectors}cancel.svg';
   static const String closedEye = '${_assetsVectors}closed_eye_icon.svg';
-  static const String eye = '${_assetsVectors}eye.svg';
+  static const String eye = '${_assetsVectors}eye_icon.svg';
   static const String background = '${_assetsImages}background.png';
   static const String profile = '${_assetsImages}profile.png';
   static const String coin = '${_assetsImages}star 3.png';

@@ -5,14 +5,13 @@ import 'package:edu/src/ui/pages/home_page.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/constants/common_dimensions.dart';
 import 'package:edu/src/utils/size/size.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/formatters.dart';
 import '../widgets/text_feild_custom.dart';
 import 'forgot_password.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -113,8 +112,8 @@ class _SignInViewState extends State<SignInView> {
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  if (_passwordController.text.isNotEmpty &&
-                      _phoneController.text.isNotEmpty) {
+                  if (_formKey.currentState != null &&
+                      _formKey.currentState!.validate()) {
                     debugPrint("ONTAP BUTTON");
                     UserAuth.signIn(
                       _phoneController.text,
