@@ -7,6 +7,7 @@ import 'package:edu/src/utils/constants/common_dimensions.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/formatters.dart';
@@ -110,24 +111,24 @@ class _SignInViewState extends State<SignInView> {
                 focusNode: null,
               ),
               const Spacer(),
-              GestureDetector(
-                onTap: () {
-                  if (_formKey.currentState != null &&
-                      _formKey.currentState!.validate()) {
-                    debugPrint("ONTAP BUTTON");
-                    UserAuth.signIn(
-                      _phoneController.text,
-                      _passwordController.text,
-                    ).then((_) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => HomePage()),
-                      );
-                    });
+                GestureDetector(
+                  onTap: () {
+                    if (_formKey.currentState != null &&
+                        _formKey.currentState!.validate()) {
+                      debugPrint("ONTAP BUTTON");
+                      UserAuth.signIn(
+                        _phoneController.text,
+                        _passwordController.text,
+                      ).then((_) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => HomePage()),
+                        );
+                      });
+                    }
+                    else {
+                      Fluttertoast.showToast(msg: 'Такого пользователя нет');
                   }
-                  // else {
-                  //   Fluttertoast.showToast(msg: 'Такого пользователя нет');
-                  // }
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10.h),
