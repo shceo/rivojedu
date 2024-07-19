@@ -17,10 +17,10 @@ class BestStudentItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                   border: Border.all(width: 3, color: color)),
               child: Image.asset(CommonAssets.avatar,
-                  width: 85, fit: BoxFit.cover),
+                  width: 75, fit: BoxFit.cover),
             ),
             Container(
-              width: 95,
+              width: 85,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

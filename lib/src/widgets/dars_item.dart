@@ -14,7 +14,7 @@ class DarsItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.only(right: 7),
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
         decoration: BoxDecoration(
             color: tap ? blue : Colors.white,
             borderRadius: BorderRadius.circular(10),

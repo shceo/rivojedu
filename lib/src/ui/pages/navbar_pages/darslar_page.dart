@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/widgets/best_student_item.dart';
 import 'package:edu/src/widgets/student_item.dart';
 import 'package:edu/src/widgets/swipper_item.dart';
@@ -21,35 +22,35 @@ class _LessonsPageState extends State<LessonsPage> {
         children: [
           Image.asset(CommonAssets.background,
               width: double.infinity, fit: BoxFit.cover),
-         const  Padding(
+          const Padding(
             padding:  EdgeInsets.all(20),
             child: Column(
               children: [
-                 SizedBox(
+                  SizedBox(
                   height: 40,
                 ),
-                 Text(
+                Text(
                   "Darslar",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 25,
                       fontWeight: FontWeight.w700),
                 ),
-                 StudentItem(),
-                 SizedBox(
+                StudentItem(),
+                SizedBox(
                   height: 26,
                 ),
-                 Text(
+                Text(
                   "Best Students",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 25,
                       fontWeight: FontWeight.w700),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 13,
                 ),
-                 Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BestStudentItem(
@@ -66,10 +67,10 @@ class _LessonsPageState extends State<LessonsPage> {
                     ),
                   ],
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 10,
                 ),
-                SwipperItem()
+                SwipperItem(),
               ],
             ),
           ),
