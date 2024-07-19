@@ -46,7 +46,7 @@ class _SwipperItemState extends State<SwipperItem> {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
@@ -71,7 +71,7 @@ class _SwipperItemState extends State<SwipperItem> {
             height: 20,
           ),
           SizedBox(
-            height: 220,
+            height: 170,
             child: Swiper(
               itemBuilder: (context, index) {
                 return Container(
@@ -85,7 +85,7 @@ class _SwipperItemState extends State<SwipperItem> {
                     children: [
                       Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(26),
+                        padding: const EdgeInsets.all(16),
                         decoration: const BoxDecoration(
                             color: blue,
                             borderRadius: BorderRadius.only(
@@ -169,13 +169,13 @@ class _SwipperItemState extends State<SwipperItem> {
               control: null,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(left: 8),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: List.generate(7, (index) {
+                children: List.generate(modul.length, (index) {
                   return DarsItem(
                     tap: selectedModul == index,
                     onTap: () {
@@ -183,7 +183,7 @@ class _SwipperItemState extends State<SwipperItem> {
                         selectedModul = index;
                       });
                     },
-                    text: "Modul ${index + 1}",
+                    text: modul[index],
                   );
                 }),
               ),
@@ -194,3 +194,9 @@ class _SwipperItemState extends State<SwipperItem> {
     );
   }
 }
+
+List<String> modul = [
+  "Modul I",
+  "Modul II",
+  "Modul III",
+];
