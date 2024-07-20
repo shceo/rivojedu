@@ -26,9 +26,7 @@ SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       BlocProvider(create: (context) => MainBloc()),
       BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
     ],
-    child: MaterialApp(
-      home: MessagesPage(),
-    ),
-    // child: App(),
+   
+    child: App(),
   ));
 }

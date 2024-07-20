@@ -19,6 +19,7 @@ abstract final class CommonAssets {
   static const String reyting1 = '${_assetsImages}reytin1.png';
   static const String reyting2 = '${_assetsImages}reytin2.png';
   static const String reyting3 = '${_assetsImages}reytin3.png';
+  static const String img = '${_assetsVectors}img.png';
 
   // Logos`
   static const String rivojLogo = '${_assetsVectors}rivojuz_logo.png';
