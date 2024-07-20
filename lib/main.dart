@@ -1,6 +1,7 @@
 import 'package:edu/src/domain/blocs/nav_bloc/main_bloc.dart';
 import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
 import 'package:edu/rivojapp.dart';
+import 'package:edu/src/ui/pages/navbar_pages/xabarlar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,9 @@ SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       BlocProvider(create: (context) => MainBloc()),
       BlocProvider(create: (context) => SplashBloc()..add(AppStarted())),
     ],
-    child: App(),
+    child: MaterialApp(
+      home: MessagesPage(),
+    ),
+    // child: App(),
   ));
 }

@@ -23,12 +23,10 @@ class _LessonsPageState extends State<LessonsPage> {
           Image.asset(CommonAssets.background,
               width: double.infinity, fit: BoxFit.cover),
           const Padding(
-            padding:  EdgeInsets.all(20),
+            padding: EdgeInsets.all(20),
             child: Column(
               children: [
-                  SizedBox(
-                  height: 40,
-                ),
+                SizedBox(height: 40),
                 Text(
                   "Darslar",
                   style: TextStyle(
