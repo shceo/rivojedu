@@ -4,15 +4,17 @@ import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
   final themeData = ThemeData(useMaterial3: true);
+
   App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: AppNavigator.router,
-        localizationsDelegates: RivojLocalization.localizationsDelegates,
-        supportedLocales: RivojLocalization.supportedLocales,
-        theme: ThemeData(useMaterial3: true));
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppNavigator.router,
+      localizationsDelegates: RivojLocalization.localizationsDelegates,
+      supportedLocales: RivojLocalization.supportedLocales,
+      theme: ThemeData(useMaterial3: true),
+    );
   }
 }
