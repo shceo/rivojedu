@@ -11,6 +11,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/formatters.dart';
+import '../widgets/my_function.dart';
 import '../widgets/text_feild_custom.dart';
 import 'forgot_password.dart';
 
@@ -39,129 +40,137 @@ class _SignInViewState extends State<SignInView> {
       ),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: (25.h), vertical: (70.w)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: (65.w)),
-                child: Image.asset(CommonAssets.rivojLogo),
-              ),
-              10.getH(),
-              Center(
-                child: Text(
-                  "Akkauntga kirish",
-                  style: GoogleFonts.archivo(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: CommonDimensions.largeText,
-                      fontWeight: FontWeight.w700,
-                    ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: (25.h), vertical: (70.w)),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: (65.w)),
+                    child: Image.asset(CommonAssets.rivojLogo),
                   ),
-                ),
-              ),
-              37.getH(),
-              Padding(
-                padding: const EdgeInsets.only(left: CommonDimensions.medium),
-                child: Text(
-                  "Telefon raqam",
-                  style: GoogleFonts.archivo(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: CommonDimensions.defaultTextSize,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-              8.getH(),
-              TextFieldCustom(
-                formKey: _formKey,
-                controller: _phoneController,
-                title: "Telefon raqamingizni kiriting",
-                isPassword: isPassword,
-                keyBoardType: TextInputType.phone,
-                maskTextInputFormatter: Formatters.phoneFormatter,
-                focusNode: null,
-              ),
-              30.getH(),
-              Padding(
-                padding: const EdgeInsets.only(left: CommonDimensions.medium),
-                child: Text(
-                  "Parol",
-                  style: GoogleFonts.archivo(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: CommonDimensions.defaultTextSize,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ),
-              8.getH(),
-              TextFieldCustom(
-                formKey: _formKey,
-                controller: _passwordController,
-                title: "Parol",
-                isPassword: true,
-                keyBoardType: TextInputType.text,
-                maskTextInputFormatter: null,
-                focusNode: null,
-              ),
-              const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    if (_formKey.currentState != null &&
-                        _formKey.currentState!.validate()) {
-                      debugPrint("ONTAP BUTTON");
-                      UserAuth.signIn(
-                        _phoneController.text,
-                        _passwordController.text,
-                      ).then((_) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (_) => HomePage()),
-                        );
-                      });
-                    }
-                    else {
-                      Fluttertoast.showToast(msg: 'Такого пользователя нет');
-                  }
-                },
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.h),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.w),
-                    color: blue,
-                  ),
-                  child: Center(
+                  10.getH(),
+                  Center(
                     child: Text(
-                      "Kirish",
+                      "Akkauntga kirish",
                       style: TextStyle(
-                        fontSize: 25.w,
-                        color: Colors.white,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26.w,
                       ),
                     ),
                   ),
-                ),
-              ),
-              32.getH(),
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => const ForgotPassword()));
-                  },
-                  child: Text(
-                    "Parolni unutdingizmi ?",
-                    style: TextStyle(fontSize: 22.w, color: Colors.blue),
-                    textAlign: TextAlign.center,
+                  37.getH(),
+                  Text(
+                    "Telefon raqam",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.w,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-              )
-            ],
+                  8.getH(),
+                  TextFieldCustom(
+                    formKey: _formKey,
+                    controller: _phoneController,
+                    title: "Telefon raqamingizni kiriting",
+                    isPassword: isPassword,
+                    keyBoardType: TextInputType.phone,
+                    maskTextInputFormatter: Formatters.phoneFormatter,
+                    validator: (value) {
+                      debugPrint(
+                          "-------------phone number validate---------------");
+                      if (value == null || value.isEmpty) {
+                        return 'Raqamni kiriting';
+                      } else if (MyFunctions.validatePhoneNumber(value)) {
+                        return 'Raqam noto\'g\'ri formatda';
+                      }
+                      return null;
+                    },
+                  ),
+                  30.getH(),
+                  Text(
+                    "Parol",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.w,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  8.getH(),
+                  TextFieldCustom(
+                    formKey: _formKey,
+                    controller: _passwordController,
+                    title: "Parol",
+                    isPassword: !isPassword,
+                    keyBoardType: TextInputType.text,
+                    maskTextInputFormatter: null,
+                    validator: (value) {
+                      debugPrint(
+                          "-------------password validate---------------");
+                      if (value == null || value.isEmpty || value.length < 8) {
+                        return 'Passwordni to\'liq kiriting';
+                      }
+                      return null;
+                    },
+                  ),
+                  // const Spacer(),
+                  265.getH(),
+                  GestureDetector(
+                    onTap: () {
+                      if (_formKey.currentState != null &&
+                          _formKey.currentState!.validate()) {
+                        UserAuth.signIn(
+                          _phoneController.text,
+                          _passwordController.text,
+                        ).then((_) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => HomePage()),
+                          );
+                        });
+                      } else {
+                        Fluttertoast.showToast(msg: 'user not found');
+                      }
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.w),
+                        color: blue,
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Kirish",
+                          style: TextStyle(
+                            fontSize: 25.w,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  32.getH(),
+                  Center(
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => const ForgotPassword()));
+                      },
+                      child: Text(
+                        "Parolni unutdingizmi ?",
+                        style: TextStyle(fontSize: 22.w, color: Colors.blue),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),

@@ -43,3 +43,34 @@
     return data;
   }
  }
+ class UserModel {
+   final String name;
+   final String surname;
+   final String phoneNumber;
+   final String password;
+
+   UserModel({
+     required this.name,
+     required this.surname,
+     required this.phoneNumber,
+     required this.password,
+   });
+
+   factory UserModel.fromJson(Map<String, dynamic> json) {
+     return UserModel(
+       name: json['name'] ?? '',
+       surname: json['surname'] ?? '',
+       phoneNumber: json['phoneNumber'] ?? '',
+       password: json['password'] ?? '',
+     );
+   }
+
+   Map<String, dynamic> toJson() {
+     return {
+       'name': name,
+       'surname': surname,
+       'phoneNumber': phoneNumber,
+       'password': password,
+     };
+   }
+ }
