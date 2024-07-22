@@ -27,8 +27,8 @@
 //
 // }
 
+
 import 'package:dio/dio.dart';
-import 'package:edu/src/domain/api/data/auth_model.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class UserAuth {
