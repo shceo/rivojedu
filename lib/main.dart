@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:edu/src/domain/blocs/nav_bloc/main_bloc.dart';
 import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
 import 'package:edu/rivojapp.dart';
@@ -20,6 +21,8 @@ SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
+  AwesomeNotifications().initialize;
 
   runApp(MultiBlocProvider(
     providers: [

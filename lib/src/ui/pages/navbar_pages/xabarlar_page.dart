@@ -1,6 +1,6 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/personal_message_screen.dart';
-import 'package:edu/src/ui/pages/navbar_pages/widgets/message_item.dart';
+import 'package:edu/src/widgets/message_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class MessagesPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => const PersonalMessage()),
+                            builder: (context) => const PersonalMessage()),
                       );
                     },
                   ),

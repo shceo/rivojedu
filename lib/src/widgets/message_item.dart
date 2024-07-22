@@ -1,8 +1,8 @@
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../assets/constants/common_assets.dart';
-import '../../../theme/app_themes.dart';
+import '../../assets/constants/common_assets.dart';
+import '../ui/theme/app_themes.dart';
 
 class MessageItem extends StatelessWidget {
   const MessageItem({super.key, required this.voidCallback});
