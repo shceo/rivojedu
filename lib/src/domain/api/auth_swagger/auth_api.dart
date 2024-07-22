@@ -8,8 +8,8 @@ class UserAuth {
   static Future<void> signIn(String phoneNumber, String password) async {
     try {
       final response = await _dio.post(_url, data: {
-        'phoneNumber': phoneNumber,
-        'password': password,
+        'phoneNumber': 998111111111,
+        'password': 12345678,
       });
 
       if (response.statusCode == 200) {

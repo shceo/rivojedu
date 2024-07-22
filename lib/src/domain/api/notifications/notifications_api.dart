@@ -20,4 +20,4 @@ dynamic id;
     } catch (e) {
       print('Error fetching notifications: $e');
     }
-  }
+}

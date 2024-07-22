@@ -1,5 +1,4 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/widgets/best_student_item.dart';
 import 'package:edu/src/widgets/student_item.dart';
 import 'package:edu/src/widgets/swipper_item.dart';
