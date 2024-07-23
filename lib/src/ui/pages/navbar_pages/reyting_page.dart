@@ -1,5 +1,6 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/reting_student.dart';
 import 'package:edu/src/widgets/reyting_item.dart';
 import 'package:flutter/material.dart';
@@ -25,22 +26,22 @@ class _RatingPageState extends State<RatingPage> {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 47,
+                SizedBox(
+                  height: 47.h,
                 ),
-                const Text(
+                Text(
                   "Reyting",
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
-                      fontSize: 25),
+                      fontSize: 25.w),
                 ),
-                const SizedBox(
-                  height: 16,
+                 SizedBox(
+                  height: 16.h,
                 ),
                 const RetingStudent(),
-                const SizedBox(
-                  height: 60,
+                SizedBox(
+                  height: 60.h,
                 ),
                 ReytingItem(
                   a: a,
@@ -53,8 +54,8 @@ class _RatingPageState extends State<RatingPage> {
                     setState(() {});
                   },
                 ),
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: 25.h,
                 ),
                 Expanded(
                   child: ListView.builder(
@@ -81,10 +82,10 @@ class _RatingPageState extends State<RatingPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "${index + 1}",
-                                style: const TextStyle(
+                                "${index + 4}",
+                                style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 20,
+                                    fontSize: 20.w,
                                     fontWeight: FontWeight.w500),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -94,37 +95,37 @@ class _RatingPageState extends State<RatingPage> {
                               ),
                               Image.asset(
                                 CommonAssets.avatar,
-                                width: 60,
+                                width: 60.w,
                                 fit: BoxFit.cover,
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.h,
                               ),
-                              const Expanded(
+                              Expanded(
                                 child: Text(
                                   "Ergashev Ali",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 20,
+                                      fontSize: 20.w,
                                       fontWeight: FontWeight.w500),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.h,
                               ),
-                              const Text(
+                              Text(
                                 "11 000",
-                                style: const TextStyle(
+                                style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 20,
+                                    fontSize: 20.w,
                                     fontWeight: FontWeight.w500),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.h,
                               ),
                               Image.asset(CommonAssets.star,
                                   width: 30, fit: BoxFit.cover)
@@ -132,7 +133,8 @@ class _RatingPageState extends State<RatingPage> {
                           ));
                     },
                   ),
-                )
+                ),
+                SizedBox(height: 30.h,)
               ],
             ),
           ),

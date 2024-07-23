@@ -1,4 +1,5 @@
 import 'package:edu/src/ui/theme/app_themes.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 
 class DarsItem extends StatelessWidget {
@@ -23,7 +24,7 @@ class DarsItem extends StatelessWidget {
           text,
           style: TextStyle(
               color: tap ? Colors.white : Colors.black,
-              fontSize: 15,
+              fontSize: 15.w,
               fontWeight: FontWeight.w700),
         ),
       ),

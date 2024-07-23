@@ -1,5 +1,6 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/notification_screen.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/moduls-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,21 +32,21 @@ class CoursesPage extends StatelessWidget {
                         const SizedBox(
                           width: 7,
                         ),
-                        const Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Xush kelibsiz,",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 15,
+                                  fontSize: 15.w,
                                   fontWeight: FontWeight.w400),
                             ),
                             Text(
                               "Ali Ergashev",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 25,
+                                  fontSize: 25.w,
                                   fontWeight: FontWeight.w700),
                             ),
                           ],
@@ -65,8 +66,8 @@ class CoursesPage extends StatelessWidget {
                             width: 30, fit: BoxFit.cover))
                   ],
                 ),
-                const SizedBox(
-                  height: 42,
+                SizedBox(
+                  height: 42.h,
                 ),
                 const ModulsItem()
               ],

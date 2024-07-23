@@ -10,7 +10,9 @@ class StudentItem extends StatelessWidget {
       children: [
         Container(
           margin : const EdgeInsets.only(
-              top: 55
+              top: 65,
+            left: 10,
+            right: 10
           ),
           padding: const EdgeInsets.symmetric(
               horizontal: 18, vertical: 4),
@@ -47,7 +49,7 @@ class StudentItem extends StatelessWidget {
           width: double.infinity,
           child: Center(
             child: Image.asset(CommonAssets.avatar,
-                width: 95, fit: BoxFit.cover),
+                width: 105, fit: BoxFit.cover),
           ),
         ),
       ],
