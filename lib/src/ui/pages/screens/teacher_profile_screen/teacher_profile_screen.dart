@@ -30,7 +30,9 @@ class TeacherProfileScreen extends StatelessWidget {
             children: [
               60.getH(),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pop(context);
+                },
                 child: Container(
                   width: 36.w,
                   height: 36.h,

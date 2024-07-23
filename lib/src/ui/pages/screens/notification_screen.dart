@@ -22,9 +22,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
           padding: const EdgeInsets.all(20),
           child: ListView(
             children: [
-              const SizedBox(
-                height: 50,
-              ),
+              // const SizedBox(
+              //   height: 25,
+              // ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

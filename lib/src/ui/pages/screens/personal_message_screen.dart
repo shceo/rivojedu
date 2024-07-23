@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/pages/screens/teacher_profile_screen/teacher_profile_screen.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
@@ -66,10 +67,19 @@ class _PersonalMessageState extends State<PersonalMessage> {
                         color: blackDark,
                       ),
                     ),
-                    CircleAvatar(
-                      radius: 21.w,
-                      backgroundImage:
-                          const AssetImage(CommonAssets.background),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => TeacherProfileScreen()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        radius: 21.w,
+                        backgroundImage:
+                            const AssetImage(CommonAssets.background),
+                      ),
                     ),
                   ],
                 ),

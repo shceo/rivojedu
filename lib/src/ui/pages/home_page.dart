@@ -54,11 +54,9 @@ class HomePage extends StatelessWidget {
         colorFilter: ColorFilter.mode(
           isCurrent ? lightBlue : grey,
           BlendMode.srcIn,
-          
         ),
       ),
       label: title,
-      
     );
   }
 }

@@ -25,7 +25,7 @@ class _LessonsPageState extends State<LessonsPage> {
             padding: EdgeInsets.all(20),
             child: Column(
               children: [
-                SizedBox(height: 40),
+                // SizedBox(height: 40),
                 Text(
                   "Darslar",
                   style: TextStyle(

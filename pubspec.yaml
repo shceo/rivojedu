@@ -20,7 +20,6 @@ dependencies:
   google_fonts: ^6.2.1
   equatable: ^2.0.5
   dio: ^5.5.0+1
-
   get_it: ^7.7.0
   connectivity_plus: ^6.0.3
   mask_text_input_formatter: ^2.9.0
@@ -41,6 +40,7 @@ dependencies:
   intl: ^0.19.0
   hive: ^2.2.3
   awesome_notifications: ^0.9.3+1
+  chart_sparkline: ^1.0.15+1
   
 
 
