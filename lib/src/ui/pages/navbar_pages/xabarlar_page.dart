@@ -23,14 +23,8 @@ class MessagesPage extends StatelessWidget {
             child: Column(
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      icon: SvgPicture.asset(CommonAssets.arrowBack),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
                     Text(
                       "Tutors",
                       style: TextStyle(fontSize: 25.w, color: white),
