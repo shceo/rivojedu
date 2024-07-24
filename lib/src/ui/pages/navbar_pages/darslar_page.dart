@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/best_student_item.dart';
 import 'package:edu/src/widgets/student_item.dart';
 import 'package:edu/src/widgets/swipper_item.dart';
@@ -21,8 +22,8 @@ class _LessonsPageState extends State<LessonsPage> {
         children: [
           Image.asset(CommonAssets.background,
               width: double.infinity, fit: BoxFit.cover),
-          const Padding(
-            padding: EdgeInsets.all(20),
+          Padding(
+            padding: EdgeInsets.all(20.w),
             child: Column(
               children: [
                 // SizedBox(height: 40),
@@ -30,24 +31,24 @@ class _LessonsPageState extends State<LessonsPage> {
                   "Darslar",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 25,
+                      fontSize: 25.w,
                       fontWeight: FontWeight.w700),
                 ),
-                StudentItem(),
+                const StudentItem(),
                 SizedBox(
-                  height: 26,
+                  height: 26.h,
                 ),
                 Text(
                   "Best Students",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 25,
+                      fontSize: 25.w,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 13,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BestStudentItem(
@@ -65,9 +66,9 @@ class _LessonsPageState extends State<LessonsPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 10.h,
                 ),
-                SwipperItem(),
+                const SwipperItem(),
               ],
             ),
           ),

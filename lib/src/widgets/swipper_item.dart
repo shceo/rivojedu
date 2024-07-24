@@ -1,3 +1,4 @@
+import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/dars_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +14,11 @@ class SwipperItem extends StatefulWidget {
 class _SwipperItemState extends State<SwipperItem> {
   int selectedLesson = 0;
   int selectedModul = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: 10.w),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -32,24 +34,24 @@ class _SwipperItemState extends State<SwipperItem> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: 10.h,
           ),
-          const Align(
+          Align(
             alignment: Alignment.center,
             child: Text(
               "Modul 1",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 25,
+                  fontSize: 25.w,
                   fontWeight: FontWeight.w700),
             ),
           ),
-          const SizedBox(
-            height: 5,
+          SizedBox(
+            height: 5.h,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8),
+            padding: EdgeInsets.only(left: 8.w),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -75,12 +77,12 @@ class _SwipperItemState extends State<SwipperItem> {
             child: Swiper(
               itemBuilder: (context, index) {
                 return Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
+                  margin: EdgeInsets.symmetric(horizontal: 5.w),
                   width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.white,
-                      border: Border.all(width: 1, color: grey)),
+                      border: Border.all(width: 1.w, color: grey)),
                   child: Column(
                     children: [
                       Container(
@@ -110,34 +112,35 @@ class _SwipperItemState extends State<SwipperItem> {
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500),
                             ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: 10.h,
                             ),
                             Container(
-                                padding: const EdgeInsets.all(3),
-                                width: 203,
-                                height: 27,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 160,
-                                      decoration: BoxDecoration(
-                                        color: blue,
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
+                              padding: const EdgeInsets.all(1),
+                              width: 203,
+                              height: 27,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 160,
+                                    decoration: BoxDecoration(
+                                      color: blue,
+                                      borderRadius: BorderRadius.circular(20),
                                     ),
-                                  ],
-                                ))
+                                  ),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),
-                      const Padding(
+                      Padding(
                         padding:
-                            EdgeInsets.symmetric(vertical: 5, horizontal: 18),
+                            EdgeInsets.symmetric(vertical: 5.h, horizontal: 18.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -145,14 +148,14 @@ class _SwipperItemState extends State<SwipperItem> {
                               "Dars 2.",
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 18,
+                                  fontSize: 18.w,
                                   fontWeight: FontWeight.w700),
                             ),
                             Text(
                               "Done",
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12,
+                                  fontSize: 12.w,
                                   fontWeight: FontWeight.w700),
                             ),
                           ],
