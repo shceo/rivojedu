@@ -4,7 +4,6 @@ import 'package:edu/src/widgets/message_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class MessagesPage extends StatelessWidget {
   const MessagesPage({super.key});
@@ -37,10 +36,10 @@ class MessagesPage extends StatelessWidget {
                   5,
                   (index) => MessageItem(
                     voidCallback: () {
-                      Navigator.push(
-                        context,
+                      Navigator.of(context, rootNavigator: true).push(
                         MaterialPageRoute(
-                            builder: (context) => const PersonalMessage()),
+                          builder: (_) => const PersonalMessage(),
+                        ),
                       );
                     },
                   ),

@@ -24,7 +24,7 @@ class _PersonalMessageState extends State<PersonalMessage> {
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.dark,
-        statusBarColor: white,
+        statusBarColor: Colors.transparent,
         systemNavigationBarColor: Colors.white,
       ),
       child: Scaffold(
@@ -72,7 +72,7 @@ class _PersonalMessageState extends State<PersonalMessage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => TeacherProfileScreen()),
+                              builder: (_) => const TeacherProfileScreen()),
                         );
                       },
                       child: CircleAvatar(
