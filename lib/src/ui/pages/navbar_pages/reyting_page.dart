@@ -27,7 +27,7 @@ class _RatingPageState extends State<RatingPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 47.h,
+                  height: 30.h,
                 ),
                 Text(
                   "Reyting",

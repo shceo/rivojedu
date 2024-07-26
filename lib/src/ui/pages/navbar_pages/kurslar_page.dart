@@ -20,7 +20,7 @@ class CoursesPage extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 50,
+                  height: 25,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
