@@ -7,6 +7,7 @@ abstract final class CommonAssets {
   static const String arrowBack = '${_assetsVectors}arrow_back.svg';
   static const String cancel = '${_assetsVectors}cancel.svg';
   static const String closedEye = '${_assetsVectors}closed_eye_icon.svg';
+  static const String editPen = '${_assetsVectors}edit_phot.svg';
   static const String eye = '${_assetsVectors}eye_icon.svg';
   static const String background = '${_assetsImages}background.png';
   static const String profile = '${_assetsImages}profile.png';
@@ -33,6 +34,9 @@ abstract final class CommonAssets {
   static const String user = '${_assetsVectors}user.svg';
   static const String notification = '${_assetsVectors}notification.png';
   static const String skalpel = '${_assetsVectors}skalpel_icon.svg';
+  static const String editPencil = '${_assetsVectors}edit_pen.svg';
+  static const String camera = '${_assetsVectors}camera.svg';
+  static const String file = '${_assetsVectors}file.svg';
 
   // Folder path
   static const String _assetsFolder = 'lib/assets/';
