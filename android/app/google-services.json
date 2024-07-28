@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "422819746758",
+    "project_id": "rivojchat",
+    "storage_bucket": "rivojchat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422819746758:android:643c815ba5ad66000158c7",
+        "android_client_info": {
+          "package_name": "edu.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnm2nVszz1kcSFZ9_UqrbFsE5G9T0K8-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
