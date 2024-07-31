@@ -41,7 +41,7 @@ dependencies:
   hive: ^2.2.3
   awesome_notifications: ^0.8.2
   chart_sparkline: ^1.0.15+1
-  firebase_core: ^3.2.0
+  firebase_core: 3.2.0
   
 
 
