@@ -20,8 +20,11 @@ class _LessonsPageState extends State<LessonsPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(CommonAssets.background,
-              width: double.infinity, fit: BoxFit.cover),
+          Image.asset(
+            CommonAssets.background,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
           Padding(
             padding: EdgeInsets.all(20.w),
             child: Column(
@@ -29,14 +32,13 @@ class _LessonsPageState extends State<LessonsPage> {
                 Text(
                   "Darslar",
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25.w,
-                      fontWeight: FontWeight.w700),
+                    color: Colors.white,
+                    fontSize: 25.w,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 const StudentItem(),
-                SizedBox(
-                  height: 26.h,
-                ),
+                SizedBox(height: 26.h),
                 Text(
                   "Best Students",
                   style: TextStyle(
@@ -44,9 +46,7 @@ class _LessonsPageState extends State<LessonsPage> {
                       fontSize: 25.w,
                       fontWeight: FontWeight.w700),
                 ),
-                const SizedBox(
-                  height: 13,
-                ),
+                const SizedBox(height: 13),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -64,9 +64,7 @@ class _LessonsPageState extends State<LessonsPage> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 10.h,
-                ),
+                SizedBox(height: 10.h),
                 const SwipperItem(),
               ],
             ),

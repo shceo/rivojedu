@@ -25,18 +25,17 @@ class _SwipperItemState extends State<SwipperItem> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-              offset: const Offset(0, 4),
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 4)
+            offset: const Offset(0, 4),
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 4,
+          )
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 10.h,
-          ),
+          SizedBox(height: 10.h),
           Align(
             alignment: Alignment.center,
             child: Text(
@@ -47,9 +46,7 @@ class _SwipperItemState extends State<SwipperItem> {
                   fontWeight: FontWeight.w700),
             ),
           ),
-          SizedBox(
-            height: 5.h,
-          ),
+          SizedBox(height: 5.h),
           Padding(
             padding: EdgeInsets.only(left: 8.w),
             child: SingleChildScrollView(
@@ -80,9 +77,13 @@ class _SwipperItemState extends State<SwipperItem> {
                   margin: EdgeInsets.symmetric(horizontal: 5.w),
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                      border: Border.all(width: 1.w, color: grey)),
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    border: Border.all(
+                      width: 1.w,
+                      color: grey,
+                    ),
+                  ),
                   child: Column(
                     children: [
                       Container(
@@ -117,7 +118,7 @@ class _SwipperItemState extends State<SwipperItem> {
                             ),
                             Container(
                               padding: const EdgeInsets.all(1),
-                              width: 203,
+                              width: 220,
                               height: 27,
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -139,8 +140,8 @@ class _SwipperItemState extends State<SwipperItem> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 5.h, horizontal: 18.w),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 5.h, horizontal: 18.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
