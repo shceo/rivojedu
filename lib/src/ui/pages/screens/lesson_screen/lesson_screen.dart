@@ -1,12 +1,17 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/comment_item.dart';
+import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/dialog_item.dart';
+import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/lessons_text_field.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/next_button_item.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/profile_field_item.dart';
+import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/send_button.dart';
+import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/send_files_item.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/teacher_item.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/video_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 
 class LessonScreen extends StatefulWidget {
@@ -18,8 +23,9 @@ class LessonScreen extends StatefulWidget {
 
 class _LessonScreenState extends State<LessonScreen> {
   late VideoPlayerController _controller;
-  bool isPlaying = true;
+  bool isPlaying = false;
   bool nextItem = false;
+  TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
@@ -170,6 +176,66 @@ class _LessonScreenState extends State<LessonScreen> {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 5,
+              color: blackDark.withOpacity(.25),
+            ),
+          ],
+          color: white,
+        ),
+        height: 58.h,
+        width: width,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            24.getW(),
+            IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return DialogItem(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SendFilesItem(
+                            iconPath: CommonAssets.plays,
+                            text: "Video",
+                            voidCallback: () {},
+                          ),
+                          SendFilesItem(
+                            iconPath: CommonAssets.images,
+                            text: "Rasm",
+                            voidCallback: () {},
+                          ),
+                          SendFilesItem(
+                            iconPath: CommonAssets.files,
+                            text: "File",
+                            voidCallback: () {},
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
+              icon: SvgPicture.asset(
+                CommonAssets.skalpel,
+                height: 29.h,
+              ),
+            ),
+            8.getW(),
+            LessonsTextField(controller: controller, function: (v) {}),
+            18.getW(),
+            SendButton(callback: () {}),
           ],
         ),
       ),
