@@ -9,22 +9,15 @@ class StudentItem extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          margin : const EdgeInsets.only(
-              top: 65,
-            left: 10,
-            right: 10
-          ),
-          padding: const EdgeInsets.symmetric(
-              horizontal: 18, vertical: 4),
+          margin: const EdgeInsets.only(top: 65, left: 10, right: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20)),
+              color: Colors.white, borderRadius: BorderRadius.circular(20)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(CommonAssets.coin,
-                  width: 30, fit: BoxFit.cover),
+              Image.asset(CommonAssets.coin, width: 30, fit: BoxFit.cover),
               const Text(
                 "120",
                 style: TextStyle(
@@ -32,7 +25,9 @@ class StudentItem extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.w700),
               ),
-              const SizedBox(width: 30,),
+              const SizedBox(
+                width: 30,
+              ),
               const Text(
                 "120",
                 style: TextStyle(
@@ -40,16 +35,15 @@ class StudentItem extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.w700),
               ),
-              Image.asset(CommonAssets.star,
-                  width: 30, fit: BoxFit.cover),
+              Image.asset(CommonAssets.star, width: 30, fit: BoxFit.cover),
             ],
           ),
         ),
         Container(
           width: double.infinity,
           child: Center(
-            child: Image.asset(CommonAssets.avatar,
-                width: 105, fit: BoxFit.cover),
+            child:
+                Image.asset(CommonAssets.avatar, width: 105, fit: BoxFit.cover),
           ),
         ),
       ],
