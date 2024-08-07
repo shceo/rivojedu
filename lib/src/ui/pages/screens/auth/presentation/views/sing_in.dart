@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/api/auth_swagger/auth_api.dart';
 import 'package:edu/src/domain/api/data/auth_model.dart';
@@ -128,13 +129,23 @@ class _SignInViewState extends State<SignInView> {
                           _phoneController.text,
                           _passwordController.text,
                         ).then((_) {
+                          Fluttertoast.showToast(msg: 'Successful login');
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (_) => HomePage()),
                           );
+                        }).catchError((error) {
+                          if (error is DioError) {
+                            Fluttertoast.showToast(
+                                msg: 'Network error: ${error.message}');
+                          } else {
+                            Fluttertoast.showToast(
+                                msg: 'Unknown error: $error');
+                          }
                         });
                       } else {
-                        Fluttertoast.showToast(msg: 'user not found');
+                        Fluttertoast.showToast(
+                            msg: 'Please fill in all fields correctly');
                       }
                     },
                     child: Container(
