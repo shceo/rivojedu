@@ -1,5 +1,7 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class StudentItem extends StatelessWidget {
   const StudentItem({super.key});
@@ -43,7 +45,15 @@ class StudentItem extends StatelessWidget {
           width: double.infinity,
           child: Center(
             child:
-                Image.asset(CommonAssets.avatar, width: 105, fit: BoxFit.cover),
+                Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        width: 2,
+                        color : Colors.white
+                      )
+                    ),
+                    child: Image.asset(CommonAssets.avatar, width: 95, fit: BoxFit.cover)),
           ),
         ),
       ],

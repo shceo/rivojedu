@@ -4,6 +4,8 @@ import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/moduls-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:hive/hive.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -69,7 +71,81 @@ class CoursesPage extends StatelessWidget {
                 SizedBox(
                   height: 42.h,
                 ),
-                const ModulsItem()
+                const ModulsItem(),
+                const Spacer(),
+                Container(
+                  padding: EdgeInsets.all(5.w),
+                  width: double.infinity,
+                  margin: EdgeInsets.symmetric(vertical: 100.h),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 4),
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 4)
+                      ]),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 28.h, horizontal: 22.w),
+                        child: Text(
+                          "Progress",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.w,
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              ...List.generate(
+                                6,
+                                (index) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(bottom: 30.h),
+                                    child: Text(
+                                      "${100 - (index * 10)} %",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 15.w),
+                                    ),
+                                  );
+                                },
+                              )
+                            ],
+                          ),
+                          Image.asset(CommonAssets.graph , width: 200.w , fit : BoxFit.cover,)
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(width: 30.w,),
+                          ...List.generate(12, (index){
+                            return Padding(
+                              padding: EdgeInsets.only(
+                                right: 10.w
+                              ),
+                              child : Text("L.${index + 1}" , style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 10.w,
+                                fontWeight: FontWeight.w500
+                              ),)
+                            );
+                          })
+                        ],
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
           )
