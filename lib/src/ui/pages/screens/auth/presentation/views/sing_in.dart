@@ -128,16 +128,33 @@ class _SignInViewState extends State<SignInView> {
                         UserAuth.signIn(
                           _phoneController.text,
                           _passwordController.text,
-                        ).then((_) {
-                          Fluttertoast.showToast(msg: 'Successful login');
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => HomePage()),
-                          );
+                        ).then((isSuccessful) {
+                          if (isSuccessful) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => HomePage()),
+                            );
+                          }
                         }).catchError((error) {
-                          if (error is DioError) {
-                            Fluttertoast.showToast(
-                                msg: 'Network error: ${error.message}');
+                          if (error is DioException) {
+                            if (error.response != null) {
+                              if (error.response!.statusCode == 404) {
+                                Fluttertoast.showToast(
+                                    msg:
+                                        'User not found: ${error.response!.data["message"]}');
+                              } else if (error.response!.statusCode == 401) {
+                                Fluttertoast.showToast(
+                                    msg:
+                                        'Unauthorized: ${error.response!.data["message"]}');
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg:
+                                        'Unknown error: ${error.response!.data}');
+                              }
+                            } else {
+                              Fluttertoast.showToast(
+                                  msg: 'Network error: ${error.message}');
+                            }
                           } else {
                             Fluttertoast.showToast(
                                 msg: 'Unknown error: $error');
