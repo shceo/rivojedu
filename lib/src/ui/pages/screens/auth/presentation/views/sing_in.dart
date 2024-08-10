@@ -1,17 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/api/auth_swagger/auth_api.dart';
-import 'package:edu/src/domain/api/data/auth_model.dart';
 import 'package:edu/src/ui/pages/home_page.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/constants/common_dimensions.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/formatters.dart';
 import '../widgets/my_function.dart';
 import '../widgets/text_feild_custom.dart';
 import 'forgot_password.dart';
@@ -43,7 +37,7 @@ class _SignInViewState extends State<SignInView> {
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: (25.h), vertical: (70.w)),
+            padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 70.h),
             child: Form(
               key: _formKey,
               child: Column(
@@ -51,7 +45,7 @@ class _SignInViewState extends State<SignInView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: (65.w)),
+                    padding: EdgeInsets.symmetric(horizontal: 65.w),
                     child: Image.asset(CommonAssets.rivojLogo),
                   ),
                   10.getH(),
@@ -79,15 +73,13 @@ class _SignInViewState extends State<SignInView> {
                     formKey: _formKey,
                     controller: _phoneController,
                     title: "Telefon raqamingizni kiriting",
-                    isPassword: isPassword,
+                    isPassword: false,
                     keyBoardType: TextInputType.phone,
-                    maskTextInputFormatter: Formatters.phoneFormatter,
+                    // maskTextInputFormatter: Formatters.phoneFormatter,
                     validator: (value) {
-                      debugPrint(
-                          "-------------phone number validate---------------");
                       if (value == null || value.isEmpty) {
                         return 'Raqamni kiriting';
-                      } else if (MyFunctions.validatePhoneNumber(value)) {
+                      } else if (!MyFunctions.validatePhoneNumber(value)) {
                         return 'Raqam noto\'g\'ri formatda';
                       }
                       return null;
@@ -107,43 +99,42 @@ class _SignInViewState extends State<SignInView> {
                     formKey: _formKey,
                     controller: _passwordController,
                     title: "Parol",
-                    isPassword: !isPassword,
+                    isPassword: isPassword,
                     keyBoardType: TextInputType.text,
                     maskTextInputFormatter: null,
                     validator: (value) {
-                      debugPrint(
-                          "-------------password validate---------------");
                       if (value == null || value.isEmpty || value.length < 8) {
                         return 'Passwordni to\'liq kiriting';
                       }
                       return null;
                     },
                   ),
-                  // const Spacer(),
                   265.getH(),
                   GestureDetector(
-              onTap: () {
-                if (_formKey.currentState != null &&
-                    _formKey.currentState!.validate()) {
-                  UserAuth.signIn(
-                    _phoneController.text,
-                    _passwordController.text,
-                  ).then((isSuccessful) {
-                    if (isSuccessful) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => HomePage()),
-                      );
-                    }
-                  }).catchError((error) {
-                    _handleError(error);
-                  });
-                } else {
-                  Fluttertoast.showToast(
-                      msg: 'Please fill in all fields correctly');
-                }
-              },
+                    onTap: () async {
+                      if (_phoneController.text.isNotEmpty &&
+                          _passwordController.text.isNotEmpty) {
+                        NetworkResponse response = await UserAuth.loginUser(
+                          phoneNumber: _phoneController.text,
+                          password: _passwordController.text,
+                        );
 
+                        debugPrint("Phone : ${_phoneController.text}");
+                        debugPrint("Phone : ${_passwordController.text}");
+                        if (response.data != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => HomePage()),
+                          );
+                        } else {
+                          Fluttertoast.showToast(msg: response.errorText);
+                        }
+                      } else {
+                        Fluttertoast.showToast(
+                            msg:
+                                'Iltimos, barcha maydonlarni to\'g\'ri to\'ldiring');
+                      }
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 10.h),
                       decoration: BoxDecoration(
@@ -169,7 +160,7 @@ class _SignInViewState extends State<SignInView> {
                             builder: (_) => const ForgotPassword()));
                       },
                       child: Text(
-                        "Parolni unutdingizmi ?",
+                        "Parolni unutdingizmi?",
                         style: TextStyle(fontSize: 22.w, color: Colors.blue),
                         textAlign: TextAlign.center,
                       ),
@@ -184,26 +175,3 @@ class _SignInViewState extends State<SignInView> {
     );
   }
 }
-
-
-
-void _handleError(error) {
-    if (error is DioException) {
-      if (error.response != null) {
-        if (error.response!.statusCode == 404) {
-          Fluttertoast.showToast(
-              msg: 'User not found: ${error.response!.data["message"]}');
-        } else if (error.response!.statusCode == 401) {
-          Fluttertoast.showToast(
-              msg: 'Unauthorized: ${error.response!.data["message"]}');
-        } else {
-          Fluttertoast.showToast(
-              msg: 'Unknown error: ${error.response!.data}');
-        }
-      } else {
-        Fluttertoast.showToast(msg: 'Network error: ${error.message}');
-      }
-    } else {
-      Fluttertoast.showToast(msg: 'Unknown error: $error');
-    }
-  }
