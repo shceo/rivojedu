@@ -3,13 +3,16 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class UserAuth {
   static final Dio _dio = Dio(BaseOptions(
-    baseUrl: 'http://134.122.28.243:8080/api/v1/auth/sign-in',
+    baseUrl: 'http://143.110.188.247:8080/api/v1/auth',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   ));
 
   static Future<bool> signIn(String phoneNumber, String password) async {
     try {
       final response = await _dio.post(
-        '',
+        '/sign-in',
         data: {
           'phoneNumber': phoneNumber,
           'password': password,
