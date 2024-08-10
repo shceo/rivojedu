@@ -2,7 +2,9 @@ import 'package:edu/assets/constants/common_assets.dart';
 import 'package:flutter/material.dart';
 
 class RetingStudent extends StatelessWidget {
-  const RetingStudent({super.key});
+  final List bestStudents;
+
+  const RetingStudent({super.key, required this.bestStudents});
 
   @override
   Widget build(BuildContext context) {
@@ -20,25 +22,25 @@ class RetingStudent extends StatelessWidget {
                     CommonAssets.reyting2,
                     height: 108,
                   ),
-                  const Text(
-                    "Ergashev Ali",
-                    style: TextStyle(
+                  Text(
+                    "${bestStudents[1]['name']} ${bestStudents[1]['surname']}",
+                    style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 15),
-                  )
+                  ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 100, left: 16),
+              Padding(
+                padding: const EdgeInsets.only(top: 100, left: 16),
                 child: Text(
-                  "11 000",
-                  style: TextStyle(
+                  "${bestStudents[1]['percentage']}",
+                  style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 15),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -52,25 +54,25 @@ class RetingStudent extends StatelessWidget {
                     CommonAssets.reyting1,
                     height: 108,
                   ),
-                  const Text(
-                    "Ergashev Ali",
-                    style: TextStyle(
+                  Text(
+                    "${bestStudents[0]['name']} ${bestStudents[0]['surname']}",
+                    style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 15),
-                  )
+                  ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 80, left: 15),
+              Padding(
+                padding: const EdgeInsets.only(top: 80, left: 15),
                 child: Text(
-                  "11 000",
-                  style: TextStyle(
+                  "${bestStudents[0]['percentage']}",
+                  style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 15),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -85,28 +87,28 @@ class RetingStudent extends StatelessWidget {
                     CommonAssets.reyting3,
                     height: 108,
                   ),
-                  const Text(
-                    "Ergashev Ali",
-                    style: TextStyle(
+                  Text(
+                    "${bestStudents[2]['name']} ${bestStudents[2]['surname']}",
+                    style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
                         fontSize: 15),
-                  )
+                  ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 120, left: 15),
+              Padding(
+                padding: const EdgeInsets.only(top: 120, left: 15),
                 child: Text(
-                  "11 000",
-                  style: TextStyle(
+                  "${bestStudents[2]['percentage']}",
+                  style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
                       fontSize: 15),
                 ),
-              )
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

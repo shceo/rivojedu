@@ -1,5 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/domain/api/ranking_swagger/rank_api.dart';
+import 'package:edu/src/domain/api/rating_swagger/rank_api.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/reting_student.dart';
@@ -55,7 +55,8 @@ class _RatingPageState extends State<RatingPage> {
                 SizedBox(
                   height: 16.h,
                 ),
-                const RetingStudent(),
+                if (bestStudents.length >= 3)
+                  RetingStudent(bestStudents: bestStudents.sublist(0, 3)),
                 SizedBox(
                   height: 60.h,
                 ),
@@ -76,9 +77,10 @@ class _RatingPageState extends State<RatingPage> {
                 Expanded(
                   child: ListView.builder(
                     padding: const EdgeInsets.all(8),
-                    itemCount: bestStudents.length,
+                    itemCount:
+                        bestStudents.length > 3 ? bestStudents.length - 3 : 0,
                     itemBuilder: (BuildContext context, int index) {
-                      final student = bestStudents[index];
+                      final student = bestStudents[index + 3];
                       return Container(
                         width: double.infinity,
                         margin: const EdgeInsets.only(bottom: 16),
@@ -99,7 +101,7 @@ class _RatingPageState extends State<RatingPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${index + 1}",
+                              "${index + 4}",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20.w,
@@ -154,7 +156,7 @@ class _RatingPageState extends State<RatingPage> {
                 ),
                 SizedBox(
                   height: 30.h,
-                )
+                ),
               ],
             ),
           ),
