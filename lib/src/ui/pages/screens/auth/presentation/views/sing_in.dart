@@ -122,28 +122,31 @@ class _SignInViewState extends State<SignInView> {
                   // const Spacer(),
                   265.getH(),
                   GestureDetector(
-              onTap: () {
-                if (_formKey.currentState != null &&
-                    _formKey.currentState!.validate()) {
-                  UserAuth.signIn(
-                    _phoneController.text,
-                    _passwordController.text,
-                  ).then((isSuccessful) {
-                    if (isSuccessful) {
+                    onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => HomePage()),
                       );
-                    }
-                  }).catchError((error) {
-                    _handleError(error);
-                  });
-                } else {
-                  Fluttertoast.showToast(
-                      msg: 'Please fill in all fields correctly');
-                }
-              },
-
+                      //    if (_formKey.currentState != null &&
+                      //     _formKey.currentState!.validate()) {
+                      //   UserAuth.signIn(
+                      //     _phoneController.text,
+                      //     _passwordController.text,
+                      //   ).then((isSuccessful) {
+                      //     if (isSuccessful) {
+                      //       Navigator.push(
+                      //         context,
+                      //         MaterialPageRoute(builder: (_) => HomePage()),
+                      //       );
+                      //     }
+                      //   }).catchError((error) {
+                      //     _handleError(error);
+                      //   });
+                      // } else {
+                      //   Fluttertoast.showToast(
+                      //       msg: 'Please fill in all fields correctly');
+                      // }
+                    },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 10.h),
                       decoration: BoxDecoration(
@@ -185,25 +188,22 @@ class _SignInViewState extends State<SignInView> {
   }
 }
 
-
-
 void _handleError(error) {
-    if (error is DioException) {
-      if (error.response != null) {
-        if (error.response!.statusCode == 404) {
-          Fluttertoast.showToast(
-              msg: 'User not found: ${error.response!.data["message"]}');
-        } else if (error.response!.statusCode == 401) {
-          Fluttertoast.showToast(
-              msg: 'Unauthorized: ${error.response!.data["message"]}');
-        } else {
-          Fluttertoast.showToast(
-              msg: 'Unknown error: ${error.response!.data}');
-        }
+  if (error is DioException) {
+    if (error.response != null) {
+      if (error.response!.statusCode == 404) {
+        Fluttertoast.showToast(
+            msg: 'User not found: ${error.response!.data["message"]}');
+      } else if (error.response!.statusCode == 401) {
+        Fluttertoast.showToast(
+            msg: 'Unauthorized: ${error.response!.data["message"]}');
       } else {
-        Fluttertoast.showToast(msg: 'Network error: ${error.message}');
+        Fluttertoast.showToast(msg: 'Unknown error: ${error.response!.data}');
       }
     } else {
-      Fluttertoast.showToast(msg: 'Unknown error: $error');
+      Fluttertoast.showToast(msg: 'Network error: ${error.message}');
     }
+  } else {
+    Fluttertoast.showToast(msg: 'Unknown error: $error');
   }
+}
