@@ -27,9 +27,9 @@ class _LessonsPageState extends State<LessonsPage> {
           ),
           Padding(
             padding: EdgeInsets.all(20.w),
-            child: Column(
+            child: ListView(
               children: [
-                SizedBox(height: 43.h,),
+                SizedBox(height: 23.h,),
                 Text(
                   "Darslar",
                   style: TextStyle(
@@ -37,6 +37,7 @@ class _LessonsPageState extends State<LessonsPage> {
                     fontSize: 25.w,
                     fontWeight: FontWeight.w700,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const StudentItem(),
                 SizedBox(height: 26.h),
