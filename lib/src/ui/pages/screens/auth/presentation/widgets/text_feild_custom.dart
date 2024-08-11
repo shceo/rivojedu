@@ -11,7 +11,7 @@ class TextFieldCustom extends StatefulWidget {
     required this.formKey,
     required this.title,
     required this.keyBoardType,
-    required this.maskTextInputFormatter,
+    this.maskTextInputFormatter,
     required this.controller,
     required this.validator,
     required this.isPassword,

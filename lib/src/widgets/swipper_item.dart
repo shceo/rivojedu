@@ -1,3 +1,4 @@
+import 'package:edu/src/ui/pages/screens/lesson_screen/lesson_screen.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/dars_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
@@ -86,57 +87,69 @@ class _SwipperItemState extends State<SwipperItem> {
                   ),
                   child: Column(
                     children: [
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(16),
-                        decoration: const BoxDecoration(
-                            color: blue,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20))),
-                        child: Column(
-                          children: [
-                            const Align(
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                "Rasmlarni qayta ishlash...",
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const LessonScreen();
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          decoration: const BoxDecoration(
+                              color: blue,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20))),
+                          child: Column(
+                            children: [
+                              const Align(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  "Rasmlarni qayta ishlash...",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                              const Text(
+                                "80",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.w500),
                               ),
-                            ),
-                            const Text(
-                              "80",
-                              style: TextStyle(
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(1),
+                                width: 220,
+                                height: 27,
+                                decoration: BoxDecoration(
                                   color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(1),
-                              width: 220,
-                              height: 27,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 160,
-                                    decoration: BoxDecoration(
-                                      color: blue,
-                                      borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 160,
+                                      decoration: BoxDecoration(
+                                        color: blue,
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                       Padding(
