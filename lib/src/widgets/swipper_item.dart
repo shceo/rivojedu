@@ -89,8 +89,7 @@ class _SwipperItemState extends State<SwipperItem> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
+                          Navigator.of(context, rootNavigator: true).push(
                             MaterialPageRoute(
                               builder: (context) {
                                 return const LessonScreen();
