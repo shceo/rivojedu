@@ -4,8 +4,6 @@ import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/moduls-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:hive/hive.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -19,7 +17,7 @@ class CoursesPage extends StatelessWidget {
               width: double.infinity, fit: BoxFit.cover),
           Padding(
             padding: const EdgeInsets.all(21),
-            child: Column(
+            child: ListView(
               children: [
                 const SizedBox(
                   height: 25,
@@ -109,7 +107,7 @@ class CoursesPage extends StatelessWidget {
                                 6,
                                 (index) {
                                   return Padding(
-                                    padding: EdgeInsets.only(bottom: 30.h),
+                                    padding: EdgeInsets.only(bottom: 20.h),
                                     child: Text(
                                       "${100 - (index * 10)} %",
                                       style: TextStyle(
@@ -122,7 +120,7 @@ class CoursesPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          Image.asset(CommonAssets.graph , width: 200.w , fit : BoxFit.cover,)
+                          Image.asset(CommonAssets.graph , width: 300.w , height : 300.h,)
                         ],
                       ),
                       Row(
