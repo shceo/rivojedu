@@ -1,5 +1,8 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
+import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class RetingStudent extends StatelessWidget {
   final List bestStudents;
@@ -11,101 +14,130 @@ class RetingStudent extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        SizedBox(
-          height: 150,
+        Padding(
+          padding: EdgeInsets.only(top: 80.w),
           child: Stack(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Image.asset(
-                    CommonAssets.reyting2,
-                    height: 108,
-                  ),
-                  Text(
-                    "${bestStudents[1]['name']} ${bestStudents[1]['surname']}",
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15),
-                  ),
-                ],
-              ),
               Padding(
-                padding: const EdgeInsets.only(top: 100, left: 16),
-                child: Text(
-                  "${bestStudents[1]['percentage']}",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15),
+                padding: const EdgeInsets.only(top: 50 , left: 20),
+                child: Stack(
+                  children: [
+                    SvgPicture.asset(CommonAssets.vector , width: 60.w,),
+                    Padding(
+                      padding: EdgeInsets.only(top: 50.h),
+                      child: Text(
+                        "10000",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18.w),
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              Container(
+                  width: 105.w,
+                  height: 105.w,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 3, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(50)),
+                  child: Image.asset(CommonAssets.avatar,
+                      width: 72.w, fit: BoxFit.cover)),
+              Container(
+                width: 105.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Image.asset(CommonAssets.medal2,
+                        width: 35.w),
+                  ],
+                ),
+              )
             ],
           ),
         ),
-        SizedBox(
-          height: 150,
-          child: Stack(
-            children: [
-              Column(
+        Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50 , left: 20),
+              child: Stack(
                 children: [
-                  Image.asset(
-                    CommonAssets.reyting1,
-                    height: 108,
-                  ),
-                  Text(
-                    "${bestStudents[0]['name']} ${bestStudents[0]['surname']}",
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15),
+                  SvgPicture.asset(CommonAssets.vector , width: 60.w, colorFilter: const ColorFilter.mode(cFFD700, BlendMode.srcIn),),
+                  Padding(
+                    padding: EdgeInsets.only(top: 50.h),
+                    child: Text(
+                      "10000",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18.w),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 80, left: 15),
-                child: Text(
-                  "${bestStudents[0]['percentage']}",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15),
-                ),
+            ),
+            Container(
+                width: 105.w,
+                height: 105.w,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 3, color: cFFD700),
+                    borderRadius: BorderRadius.circular(50)),
+                child: Image.asset(CommonAssets.avatar,
+                    width: 72.w, fit: BoxFit.cover)),
+            Container(
+              width: 105.w,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset(CommonAssets.medal1,
+                      width: 35.w),
+                ],
               ),
-            ],
-          ),
+            )
+          ],
         ),
-        SizedBox(
-          height: 170,
+        Padding(
+          padding: EdgeInsets.only(top : 80.h),
           child: Stack(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Image.asset(
-                    CommonAssets.reyting3,
-                    height: 108,
-                  ),
-                  Text(
-                    "${bestStudents[2]['name']} ${bestStudents[2]['surname']}",
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 15),
-                  ),
-                ],
-              ),
               Padding(
-                padding: const EdgeInsets.only(top: 120, left: 15),
-                child: Text(
-                  "${bestStudents[2]['percentage']}",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15),
+                padding: const EdgeInsets.only(top: 50 , left: 20),
+                child: Stack(
+                  children: [
+                    SvgPicture.asset(CommonAssets.vector , width: 60.w,colorFilter: const ColorFilter.mode(cCD7F32, BlendMode.srcIn),),
+                    Padding(
+                      padding: EdgeInsets.only(top: 50.h),
+                      child: Text(
+                        "10000",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18.w),
+                      ),
+                    ),
+                  ],
                 ),
               ),
+              Container(
+                  width: 105.w,
+                  height: 105.w,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 3, color: cCD7F32),
+                      borderRadius: BorderRadius.circular(50)),
+                  child: Image.asset(CommonAssets.avatar,
+                      width: 72.w, fit: BoxFit.cover)),
+              Container(
+                width: 105.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Image.asset(CommonAssets.medal3,
+                        width: 35.w),
+                  ],
+                ),
+              )
             ],
           ),
         ),

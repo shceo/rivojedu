@@ -47,6 +47,7 @@ abstract final class CommonAssets {
   static const String file = '${_assetsVectors}file.svg';
   static const String play = '${_assetsVectors}play.svg';
   static const String pouse = '${_assetsVectors}pouse.svg';
+  static const String vector = '${_assetsVectors}vector.svg';
 
   // Folder path
   static const String _assetsFolder = 'lib/assets/';

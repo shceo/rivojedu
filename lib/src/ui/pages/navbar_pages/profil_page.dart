@@ -6,6 +6,7 @@ import 'package:edu/src/widgets/image_dialog.dart';
 import 'package:edu/src/widgets/password_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -16,7 +17,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int a = 0;
-
+  final Uri _url = Uri.parse('https://rivojuz.uz');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fit: BoxFit.cover,
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           customsShowBottomSheet(context);
                         },
                         child: Padding(
@@ -95,18 +96,23 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(
               height: 6.h,
             ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "Abubakr",
-                  hintStyle: const TextStyle(color: Colors.black),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                          color: c575757.withOpacity(0.5), width: 0.w)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                          color: c575757.withOpacity(0.5), width: 1.w))),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 18.w , horizontal: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: c575757.withOpacity(0.5),
+                  width: 1.w,
+                ),
+              ),
+              child : Text(
+                "Abubakr",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16.w,
+                    fontWeight: FontWeight.w500),
+              )
             ),
             SizedBox(
               height: 27.h,
@@ -119,18 +125,23 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(
               height: 6.h,
             ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "December 27, 1990s",
-                  hintStyle: const TextStyle(color: Colors.black),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                          color: c575757.withOpacity(0.5), width: 0.w)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                          color: c575757.withOpacity(0.5), width: 1.w))),
+            Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 18.w , horizontal: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: c575757.withOpacity(0.5),
+                    width: 1.w,
+                  ),
+                ),
+                child : Text(
+                  "September 04",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16.w,
+                      fontWeight: FontWeight.w500),
+                )
             ),
             SizedBox(
               height: 27.h,
@@ -157,22 +168,26 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(
               height: 23.h,
             ),
-
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 17.w, horizontal: 13.h),
-              decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 1.w,
-                    color: c575757.withOpacity(0.5),
-                  ),
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                "Biz haqimizda",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15.w,
-                    fontWeight: FontWeight.w600),
+            GestureDetector(
+              onTap : () async {
+                await launchUrl(_url);
+              },
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 17.w, horizontal: 13.h),
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1.w,
+                      color: c575757.withOpacity(0.5),
+                    ),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Text(
+                  "Biz haqimizda",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15.w,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             )
           ],
