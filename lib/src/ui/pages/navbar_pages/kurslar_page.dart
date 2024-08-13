@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/domain/entity/storage_repository.dart';
 import 'package:edu/src/ui/pages/screens/notification_screen.dart';
 import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/moduls-item.dart';
@@ -7,6 +8,14 @@ import 'package:flutter/material.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
+
+  Future<String> _getUserName() async {
+    String? userName = await StorageRepository.getString(key: 'user_name');
+    if (userName == null || userName.isEmpty) {
+      throw Exception("User name not found or empty");
+    }
+    return userName;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +28,6 @@ class CoursesPage extends StatelessWidget {
             padding: const EdgeInsets.all(21),
             child: ListView(
               children: [
-               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -30,24 +38,43 @@ class CoursesPage extends StatelessWidget {
                         const SizedBox(
                           width: 7,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Xush kelibsiz,",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15.w,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            Text(
-                              "Ali Ergashev",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 25.w,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ],
+                        FutureBuilder<String>(
+                          future: _getUserName(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return CircularProgressIndicator();
+                            } else if (snapshot.hasError) {
+                              return Text(
+                                "Error: ${snapshot.error}",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.w,
+                                    fontWeight: FontWeight.w400),
+                              );
+                            } else {
+                              String userName = snapshot.data!;
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Xush kelibsiz,",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15.w,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                  Text(
+                                    userName,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 25.w,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              );
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -118,24 +145,29 @@ class CoursesPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          Image.asset(CommonAssets.graph , width: 300.w , height : 300.h,)
+                          Image.asset(
+                            CommonAssets.graph,
+                            width: 300.w,
+                            height: 300.h,
+                          )
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          SizedBox(width: 30.w,),
-                          ...List.generate(12, (index){
+                          SizedBox(
+                            width: 30.w,
+                          ),
+                          ...List.generate(12, (index) {
                             return Padding(
-                              padding: EdgeInsets.only(
-                                right: 10.w
-                              ),
-                              child : Text("L.${index + 1}" , style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 10.w,
-                                fontWeight: FontWeight.w500
-                              ),)
-                            );
+                                padding: EdgeInsets.only(right: 10.w),
+                                child: Text(
+                                  "L.${index + 1}",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 10.w,
+                                      fontWeight: FontWeight.w500),
+                                ));
                           })
                         ],
                       )
