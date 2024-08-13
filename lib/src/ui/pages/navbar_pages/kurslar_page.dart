@@ -10,8 +10,8 @@ class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
 
   Future<String> _getUserName() async {
-    String? userName = await StorageRepository.getString(key: 'user_name');
-    if (userName == null || userName.isEmpty) {
+    String? userName = StorageRepository.getString(key: 'user_name');
+    if (userName.isEmpty) {
       throw Exception("User name not found or empty");
     }
     return userName;
