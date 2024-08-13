@@ -19,9 +19,7 @@ class CoursesPage extends StatelessWidget {
             padding: const EdgeInsets.all(21),
             child: ListView(
               children: [
-                const SizedBox(
-                  height: 25,
-                ),
+               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

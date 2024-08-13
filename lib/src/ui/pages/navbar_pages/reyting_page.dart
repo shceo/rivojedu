@@ -52,9 +52,7 @@ class _RatingPageState extends State<RatingPage> {
                       fontWeight: FontWeight.w700,
                       fontSize: 25.w),
                 ),
-                SizedBox(
-                  height: 16.h,
-                ),
+               
                 if (bestStudents.length >= 3)
                   RetingStudent(bestStudents: bestStudents.sublist(0, 3)),
                 SizedBox(
