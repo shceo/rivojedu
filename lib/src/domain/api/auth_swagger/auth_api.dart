@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import '../../entity/storage_repository.dart';
 
 class UserAuth {
-  static const String baseUrl = '143.110.188.247:8080';
-  static const String path = '/api/v1/auth/sign-in';
+  static const String baseUrl = '139.59.150.159:8080';
+  static const String path = '/api/v1/auth/sign-in2';
 
   static Map<String, String> getHeaders() {
     return {
@@ -36,25 +36,21 @@ class UserAuth {
       if (response.statusCode == HttpStatus.ok || response.statusCode == HttpStatus.created) {
         final Map<String, dynamic> data = jsonDecode(response.body);
 
-        String? token = data['token'];
+        String? id = data['id'];
         String? name = data['name'];
         String? surname = data['surname'];
-        String? birth = data['birth'];
+        String? avatar = data['avatar'];
+        String? phoneNumber = data['phoneNumber'];
+        dynamic birth = data['birth'];
 
-        debugPrint('Parsed name: $name, token: $token');
+        if (id != null) await StorageRepository.setString(key: 'user_id', value: id);
+        if (name != null) await StorageRepository.setString(key: 'user_name', value: name);
+        if (surname != null) await StorageRepository.setString(key: 'user_surname', value: surname);
+        if (avatar != null) await StorageRepository.setString(key: 'user_avatar', value: avatar);
+        if (phoneNumber != null) await StorageRepository.setString(key: 'user_phoneNumber', value: phoneNumber);
+        if (birth != null) await StorageRepository.setString(key: 'user_birth', value: birth);
 
-        if (token != null) {
-          await StorageRepository.setString(key: 'access_token', value: token);
-          await StorageRepository.setString(key: 'user_password', value: password);
-
-          if (name != null) await StorageRepository.setString(key: 'user_name', value: name);
-          if (surname != null) await StorageRepository.setString(key: 'user_surname', value: surname);
-          if (birth != null) await StorageRepository.setString(key: 'user_birth', value: birth);
-
-          return NetworkResponse(data: data);
-        } else {
-          return NetworkResponse(errorText: "Token not found");
-        }
+        return NetworkResponse(data: data);
       }
 
       return _handleHttpErrors(response);

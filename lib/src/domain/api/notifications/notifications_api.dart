@@ -6,7 +6,7 @@ Future<void> fetchAndShowNotifications() async {
 dynamic id;
 
     try {
-      var response = await Dio().get('http://165.232.73.1:8080/api/v1/admin/get-notification${id}');
+      var response = await Dio().get('http://143.110.188.247:8080/api/v1/admin/get-all-notification');
       for (var notification in response.data) {
         await AwesomeNotifications().createNotification(
           content: NotificationContent(

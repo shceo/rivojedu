@@ -10,9 +10,9 @@ class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
 
   Future<String> _getUserName() async {
-    String? userName = StorageRepository.getString(key: 'user_name');
-    if (userName.isEmpty) {
-      throw Exception("User name not found or empty");
+    String? userName = await StorageRepository.getString(key: 'user_name');
+    if (userName == null || userName.isEmpty) {
+      throw Exception("User name not found");
     }
     return userName;
   }
@@ -46,7 +46,7 @@ class CoursesPage extends StatelessWidget {
                               return CircularProgressIndicator();
                             } else if (snapshot.hasError) {
                               return Text(
-                                "Error: ${snapshot.error}",
+                                "Xato: ${snapshot.error}",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15.w,
@@ -95,7 +95,7 @@ class CoursesPage extends StatelessWidget {
                   height: 42.h,
                 ),
                 const ModulsItem(),
-                const Spacer(),
+                // const Spacer(),
                 Container(
                   padding: EdgeInsets.all(5.w),
                   width: double.infinity,
