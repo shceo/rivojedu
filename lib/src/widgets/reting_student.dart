@@ -22,7 +22,7 @@ class RetingStudent extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 50, left: 20),
                 child: Stack(
                   children: [
-                    SvgPicture.asset(CommonAssets.vector, width: 60.w),
+                    SvgPicture.asset(CommonAssets.vector, width: 55.w),
                     Padding(
                       padding: EdgeInsets.only(top: 50.h),
                       child: Text(
@@ -37,8 +37,8 @@ class RetingStudent extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 105.w,
-                height: 105.w,
+                width: 90.w,
+                height: 90.w,
                 decoration: BoxDecoration(
                     border: Border.all(width: 3, color: Colors.grey),
                     borderRadius: BorderRadius.circular(50)),
@@ -87,8 +87,8 @@ class RetingStudent extends StatelessWidget {
               ),
             ),
             Container(
-              width: 105.w,
-              height: 105.w,
+              width: 90.w,
+              height: 90.w,
               decoration: BoxDecoration(
                   border: Border.all(width: 3, color: cFFD700),
                   borderRadius: BorderRadius.circular(50)),
@@ -137,8 +137,8 @@ class RetingStudent extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 105.w,
-                height: 105.w,
+                width: 90.w,
+                height: 90.w,
                 decoration: BoxDecoration(
                     border: Border.all(width: 3, color: cCD7F32),
                     borderRadius: BorderRadius.circular(50)),

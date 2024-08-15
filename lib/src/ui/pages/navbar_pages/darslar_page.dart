@@ -29,7 +29,7 @@ class _LessonsPageState extends State<LessonsPage> {
             padding: EdgeInsets.all(20.w),
             child: ListView(
               children: [
-                SizedBox(height: 23.h,),
+               
                 Text(
                   "Darslar",
                   style: TextStyle(
