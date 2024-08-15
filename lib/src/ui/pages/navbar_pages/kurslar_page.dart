@@ -11,10 +11,18 @@ class CoursesPage extends StatelessWidget {
 
   Future<String> _getUserName() async {
     String? userName = await StorageRepository.getString(key: 'user_name');
-    if (userName == null || userName.isEmpty) {
+    if (userName.isEmpty) {
       throw Exception("User name not found");
     }
     return userName;
+  }
+
+  Future<String> _getUserAvatar() async {
+    String? avatarUrl = await StorageRepository.getString(key: 'avatar');
+    if (avatarUrl.isEmpty) {
+      throw Exception("Avatar not found");
+    }
+    return avatarUrl;
   }
 
   @override
@@ -33,8 +41,22 @@ class CoursesPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset(CommonAssets.profile,
-                            width: 60, height: 60, fit: BoxFit.cover),
+                        FutureBuilder<String>(
+                          future: _getUserAvatar(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState == ConnectionState.waiting) {
+                              return CircularProgressIndicator();
+                            } else if (snapshot.hasError) {
+                              return Icon(Icons.error, color: Colors.red);
+                            } else {
+                              String avatarUrl = snapshot.data!;
+                              return CircleAvatar(
+                                radius: 30,
+                                backgroundImage: NetworkImage(avatarUrl),
+                              );
+                            }
+                          },
+                        ),
                         const SizedBox(
                           width: 7,
                         ),
@@ -46,7 +68,7 @@ class CoursesPage extends StatelessWidget {
                               return CircularProgressIndicator();
                             } else if (snapshot.hasError) {
                               return Text(
-                                "Xato: ${snapshot.error}",
+                                "Error: ${snapshot.error}",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15.w,
@@ -58,7 +80,7 @@ class CoursesPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Xush kelibsiz,",
+                                    "Welcome,",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 15.w,
@@ -95,7 +117,6 @@ class CoursesPage extends StatelessWidget {
                   height: 42.h,
                 ),
                 const ModulsItem(),
-                // const Spacer(),
                 Container(
                   padding: EdgeInsets.all(5.w),
                   width: double.infinity,
