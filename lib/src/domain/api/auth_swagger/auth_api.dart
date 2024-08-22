@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import '../../entity/storage_repository.dart';
 
 class UserAuth {
-  static const String baseUrl = '139.59.150.159:8080';
-  static const String path = '/api/v1/auth/sign-in2';
+  static const String baseUrl = '164.90.187.178:8080';
+  static const String path = '/api/v1/auth/sign-in';
 
   static Map<String, String> getHeaders() {
     return {
@@ -41,7 +41,7 @@ class UserAuth {
         String? surname = data['surname'];
         String? avatar = data['avatar'];
         String? phoneNumber = data['phoneNumber'];
-        dynamic birth = data['birth'];
+        var birth = data['birth'];
 
         if (id != null) await StorageRepository.setString(key: 'user_id', value: id);
         if (name != null) await StorageRepository.setString(key: 'user_name', value: name);
