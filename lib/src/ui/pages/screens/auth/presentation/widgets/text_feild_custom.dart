@@ -1,9 +1,8 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'my_function.dart';
 
 class TextFieldCustom extends StatefulWidget {
   const TextFieldCustom({

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../../../assets/constants/common_assets.dart';
-import '../../../../../utils/size/size.dart';
 import '../../../../theme/app_themes.dart';
 
 class VideoItem extends StatelessWidget {

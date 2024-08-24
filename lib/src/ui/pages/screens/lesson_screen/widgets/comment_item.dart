@@ -1,5 +1,5 @@
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../theme/app_themes.dart';
 
@@ -43,7 +43,7 @@ class CommentItem extends StatelessWidget {
                   backgroundImage: AssetImage(imgUrl),
                 ),
               ),
-              5.getW(),
+              5.verticalSpace,
               Text(
                 name,
                 style: TextStyle(
@@ -54,7 +54,7 @@ class CommentItem extends StatelessWidget {
               ),
             ],
           ),
-          10.getH(),
+          10.verticalSpace,
           Text(
             title,
             style: TextStyle(
@@ -63,7 +63,7 @@ class CommentItem extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          8.getH(),
+          8.verticalSpace,
           Text(
             dateText,
             style: TextStyle(

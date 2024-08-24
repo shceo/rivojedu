@@ -1,5 +1,5 @@
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../theme/app_themes.dart';
 
@@ -58,7 +58,7 @@ class _ProfileFieldItemState extends State<ProfileFieldItem> {
             ),
           ),
           Divider(color: EDEEF0, height: 1.h),
-          5.getH(),
+          5.verticalSpace,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 11.h),
             child: Column(
@@ -83,7 +83,7 @@ class _ProfileFieldItemState extends State<ProfileFieldItem> {
                         ),
                       ]),
                 ),
-                11.getH(),
+                11.verticalSpace,
                 RichText(
                   text: TextSpan(
                       text: "Davomiyligi -  ",
@@ -103,7 +103,7 @@ class _ProfileFieldItemState extends State<ProfileFieldItem> {
                         ),
                       ]),
                 ),
-                12.getH(),
+                12.verticalSpace,
                 Text(
                   "Qo’shimcha dars uchun linklar : ",
                   style: TextStyle(
@@ -112,7 +112,7 @@ class _ProfileFieldItemState extends State<ProfileFieldItem> {
                     color: blackDark,
                   ),
                 ),
-                10.getH(),
+                10.verticalSpace,
                 GestureDetector(
                   onTap: () async {
                     _launchUrl();
@@ -126,7 +126,7 @@ class _ProfileFieldItemState extends State<ProfileFieldItem> {
                     ),
                   ),
                 ),
-                20.getH(),
+                20.verticalSpace,
               ],
             ),
           ),

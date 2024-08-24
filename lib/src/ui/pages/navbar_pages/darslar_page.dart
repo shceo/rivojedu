@@ -1,9 +1,9 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/best_student_item.dart';
 import 'package:edu/src/widgets/student_item.dart';
 import 'package:edu/src/widgets/swipper_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LessonsPage extends StatefulWidget {
   const LessonsPage({super.key});

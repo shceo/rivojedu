@@ -1,5 +1,5 @@
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SendFilesItem extends StatelessWidget {
   const SendFilesItem({
@@ -40,7 +40,7 @@ class SendFilesItem extends StatelessWidget {
             ),
           ),
         ),
-        9.getH(),
+        9.verticalSpace,
         Text(
           text,
           style: TextStyle(

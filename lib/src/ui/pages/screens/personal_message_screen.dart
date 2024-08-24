@@ -1,9 +1,9 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/teacher_profile_screen/teacher_profile_screen.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../domain/entity/message_model.dart';
 
@@ -140,7 +140,7 @@ class _PersonalMessageState extends State<PersonalMessage> {
                         ),
                       ),
                     ),
-                    50.getH(),
+                    50.verticalSpace,
                   ],
                 ),
               ),
@@ -149,7 +149,7 @@ class _PersonalMessageState extends State<PersonalMessage> {
               bottom: 0.h,
               child: Container(
                 color: Colors.white,
-                width: width,
+                width: double.infinity,
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -164,7 +164,7 @@ class _PersonalMessageState extends State<PersonalMessage> {
                         ),
                       ),
                     ),
-                    6.getW(),
+                    6.horizontalSpace,
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
@@ -203,7 +203,7 @@ class _PersonalMessageState extends State<PersonalMessage> {
                         ),
                       ),
                     ),
-                    18.getW(),
+                    18.horizontalSpace,
                     IconButton(
                       onPressed: () {
                         if (messageController.text.isNotEmpty) {

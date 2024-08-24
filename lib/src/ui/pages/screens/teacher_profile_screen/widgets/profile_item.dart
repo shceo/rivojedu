@@ -1,5 +1,5 @@
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../theme/app_themes.dart';
 
 class ProfileItem extends StatelessWidget {
@@ -39,7 +39,7 @@ class ProfileItem extends StatelessWidget {
             ),
           ),
           Divider(color: EDEEF0, height: 1.h),
-          5.getH(),
+          5.verticalSpace,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 11.h),
             child: Column(
@@ -53,7 +53,7 @@ class ProfileItem extends StatelessWidget {
                     color: c575757,
                   ),
                 ),
-                10.getH(),
+                10.verticalSpace,
                 Text(
                   teacherBranch,
                   style: TextStyle(
@@ -62,7 +62,7 @@ class ProfileItem extends StatelessWidget {
                     color: c575757,
                   ),
                 ),
-                15.getH(),
+                15.verticalSpace,
                 Text(
                   "Men haqimda",
                   style: TextStyle(
@@ -71,7 +71,7 @@ class ProfileItem extends StatelessWidget {
                     color: c575757,
                   ),
                 ),
-                10.getH(),
+                10.verticalSpace,
                 Text(
                   teacherData,
                   style: TextStyle(

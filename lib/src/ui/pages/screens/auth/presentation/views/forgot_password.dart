@@ -1,7 +1,7 @@
 import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_back_button.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../theme/app_themes.dart';
 import '../widgets/buton_item.dart';
 import 'forgot_passwrod_enter_code.dart';
