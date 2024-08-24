@@ -1,10 +1,10 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/api/rating_swagger/rank_api.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/reting_student.dart';
 import 'package:edu/src/widgets/reyting_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RatingPage extends StatefulWidget {
   const RatingPage({super.key});

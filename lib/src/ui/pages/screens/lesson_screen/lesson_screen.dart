@@ -9,8 +9,8 @@ import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/send_files_item.d
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/teacher_item.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/video_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 
@@ -50,20 +50,19 @@ class _LessonScreenState extends State<LessonScreen> {
 
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
+
 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            30.getH(),
+            30.verticalSpace,
             VideoItem(
               togglePlayPause: _togglePlayPause,
               controller: _controller,
               isPlaying: isPlaying,
             ),
-            38.getH(),
+            38.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 33.w),
               child: Column(
@@ -74,14 +73,14 @@ class _LessonScreenState extends State<LessonScreen> {
                     experience: "4 yillik tajribaga ega o’qituvchi",
                     teacherName: "Josie",
                   ),
-                  23.getH(),
+                  23.verticalSpace,
                   const ProfileFieldItem(
                     themeText:
                         'alksdnfklsadbaskvadsfasdfasdfasdfasdfasdfasdfasasdfasdfasdfasdfasdf',
                     continueText: '23 : 30',
                     url: 'daturlash.uz',
                   ),
-                  21.getH(),
+                  21.verticalSpace,
                   GestureDetector(
                     onTap: () {
                       nextItem = !nextItem;
@@ -99,7 +98,7 @@ class _LessonScreenState extends State<LessonScreen> {
                           ),
                         ],
                       ),
-                      width: width,
+                      width: double.infinity,
                       padding: EdgeInsets.symmetric(
                         horizontal: 20.w,
                         vertical: 10.h,
@@ -115,7 +114,7 @@ class _LessonScreenState extends State<LessonScreen> {
                               color: c235789,
                             ),
                           ),
-                          4.getH(),
+                          4.verticalSpace,
                           ...List.generate(
                             nextItem == false ? 3 : 7,
                             (index) => const CommentItem(
@@ -126,7 +125,7 @@ class _LessonScreenState extends State<LessonScreen> {
                               name: "Thao Nguyen",
                             ),
                           ),
-                          6.getH(),
+                          6.verticalSpace,
                           nextItem == false
                               ? NextButtonItem(
                                   voidCallback: () {
@@ -139,7 +138,7 @@ class _LessonScreenState extends State<LessonScreen> {
                       ),
                     ),
                   ),
-                  74.getH(),
+                  74.verticalSpace,
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 50.h),
                     width: double.infinity,
@@ -160,7 +159,7 @@ class _LessonScreenState extends State<LessonScreen> {
                           CommonAssets.homework,
                           height: 150.h,
                         ),
-                        27.getH(),
+                        27.verticalSpace,
                         Text(
                           "Uyga vazifa hali tayyorlanmadi",
                           style: TextStyle(
@@ -172,7 +171,7 @@ class _LessonScreenState extends State<LessonScreen> {
                       ],
                     ),
                   ),
-                  100.getH(),
+                  100.verticalSpace,
                 ],
               ),
             ),
@@ -190,12 +189,12 @@ class _LessonScreenState extends State<LessonScreen> {
           color: white,
         ),
         height: 58.h,
-        width: width,
+        width: double.infinity,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            24.getW(),
+            24.horizontalSpace,
             IconButton(
               onPressed: () {
                 showModalBottomSheet(
@@ -232,9 +231,9 @@ class _LessonScreenState extends State<LessonScreen> {
                 height: 29.h,
               ),
             ),
-            8.getW(),
+            8.horizontalSpace,
             LessonsTextField(controller: controller, function: (v) {}),
-            18.getW(),
+            18.horizontalSpace,
             SendButton(callback: () {}),
           ],
         ),

@@ -1,5 +1,5 @@
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../assets/constants/common_assets.dart';
 import '../ui/theme/app_themes.dart';

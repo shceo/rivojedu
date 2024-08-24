@@ -1,10 +1,10 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/entity/storage_repository.dart';
 import 'package:edu/src/ui/pages/screens/notification_screen.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:edu/src/widgets/moduls-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
@@ -32,87 +32,89 @@ class CoursesPage extends StatelessWidget {
         children: [
           Image.asset(CommonAssets.background,
               width: double.infinity, fit: BoxFit.cover),
-          Padding(
-            padding: const EdgeInsets.all(21),
-            child: ListView(
+          Positioned(
+            top: 40.h,
+            left: 21.w,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        FutureBuilder<String>(
-                          future: _getUserAvatar(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState == ConnectionState.waiting) {
-                              return CircularProgressIndicator();
-                            } else if (snapshot.hasError) {
-                              return Icon(Icons.error, color: Colors.red);
-                            } else {
-                              String avatarUrl = snapshot.data!;
-                              return CircleAvatar(
-                                radius: 30,
-                                backgroundImage: NetworkImage(avatarUrl),
-                              );
-                            }
-                          },
-                        ),
-                        const SizedBox(
-                          width: 7,
-                        ),
-                        FutureBuilder<String>(
-                          future: _getUserName(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return CircularProgressIndicator();
-                            } else if (snapshot.hasError) {
-                              return Text(
-                                "Error: ${snapshot.error}",
+                    FutureBuilder<String>(
+                      future: _getUserAvatar(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Icon(Icons.error, color: Colors.red);
+                        } else {
+                          String avatarUrl = snapshot.data!;
+                          return CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(avatarUrl),
+                          );
+                        }
+                      },
+                    ),
+                    FutureBuilder<String>(
+                      future: _getUserName(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text(
+                            "Error: ${snapshot.error}",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.w,
+                                fontWeight: FontWeight.w400),
+                          );
+                        } else {
+                          String userName = snapshot.data!;
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Welcome,",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15.w,
                                     fontWeight: FontWeight.w400),
-                              );
-                            } else {
-                              String userName = snapshot.data!;
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Welcome,",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15.w,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    userName,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 25.w,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                ],
-                              );
-                            }
-                          },
-                        ),
-                      ],
+                              ),
+                              Text(
+                                userName,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 25.w,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ],
+                          );
+                        }
+                      },
                     ),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              CupertinoDialogRoute(
-                                  builder: (context) =>
-                                      const NotificationScreen(),
-                                  context: context));
-                        },
-                        child: Image.asset(CommonAssets.notification,
-                            width: 30, fit: BoxFit.cover))
                   ],
                 ),
+                GestureDetector(
+                    onTap: () {
+
+                      Navigator.push(
+                          context,
+                          CupertinoDialogRoute(
+                              builder: (context) => const NotificationScreen(),
+                              context: context));
+                    },
+                    child: Image.asset(CommonAssets.notification,
+                        width: 30, fit: BoxFit.cover))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(21),
+            child: ListView(
+              children: [
                 SizedBox(
                   height: 42.h,
                 ),
@@ -136,7 +138,7 @@ class CoursesPage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: 28.h, horizontal: 22.w),
+                            vertical: 10.h, horizontal: 22.w),
                         child: Text(
                           "Progress",
                           style: TextStyle(
@@ -168,7 +170,7 @@ class CoursesPage extends StatelessWidget {
                           ),
                           Image.asset(
                             CommonAssets.graph,
-                            width: 300.w,
+                            width: 270.w,
                             height: 300.h,
                           )
                         ],
@@ -176,20 +178,19 @@ class CoursesPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          SizedBox(
-                            width: 30.w,
+                          ...List.generate(
+                            12,
+                            (index) {
+                              return Text(
+                                "L.${index + 1}",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 10.w,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              );
+                            },
                           ),
-                          ...List.generate(12, (index) {
-                            return Padding(
-                                padding: EdgeInsets.only(right: 10.w),
-                                child: Text(
-                                  "L.${index + 1}",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 10.w,
-                                      fontWeight: FontWeight.w500),
-                                ));
-                          })
                         ],
                       )
                     ],

@@ -1,5 +1,5 @@
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../assets/constants/common_assets.dart';
 import '../../../../theme/app_themes.dart';
 
@@ -24,7 +24,7 @@ class TeacherItem extends StatelessWidget {
           radius: 33.w,
           backgroundImage: const AssetImage(CommonAssets.profile),
         ),
-        12.getW(),
+        12.verticalSpace,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,7 +36,7 @@ class TeacherItem extends StatelessWidget {
                 color: blackDark,
               ),
             ),
-            5.getH(),
+            5.verticalSpace,
             Text(
               teacherField,
               style: TextStyle(
@@ -45,7 +45,7 @@ class TeacherItem extends StatelessWidget {
                 color: c575757,
               ),
             ),
-            5.getH(),
+            5.verticalSpace,
             Text(
               experience,
               style: TextStyle(

@@ -2,16 +2,14 @@ import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/personal_message_screen.dart';
 import 'package:edu/src/widgets/message_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MessagesPage extends StatelessWidget {
   const MessagesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [

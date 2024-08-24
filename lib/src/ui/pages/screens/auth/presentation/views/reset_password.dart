@@ -1,7 +1,7 @@
 import 'package:edu/src/ui/pages/screens/auth/presentation/views/sing_in.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../theme/app_themes.dart';
 import '../widgets/w_button.dart';
 import '../widgets/widgets.dart';

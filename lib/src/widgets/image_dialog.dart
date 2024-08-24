@@ -1,9 +1,8 @@
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hive/hive.dart';
 
 customsShowBottomSheet(
   BuildContext context,

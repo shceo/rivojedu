@@ -2,9 +2,9 @@ import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/ui/pages/screens/teacher_profile_screen/widgets/profile_item.dart';
 import 'package:edu/src/ui/pages/screens/teacher_profile_screen/widgets/teacher_data_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TeacherProfileScreen extends StatelessWidget {
@@ -12,8 +12,6 @@ class TeacherProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
     return AnnotatedRegion(
       value: const SystemUiOverlayStyle(
         statusBarIconBrightness: Brightness.dark,
@@ -28,7 +26,7 @@ class TeacherProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              60.getH(),
+              60.verticalSpace,
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
@@ -48,7 +46,7 @@ class TeacherProfileScreen extends StatelessWidget {
                 imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/041/642/170/small_2x/ai-generated-portrait-of-handsome-smiling-young-man-with-folded-arms-isolated-free-png.png",
                 name: "Aziz Eshpolatov",
               ),
-              30.getH(),
+              30.verticalSpace,
                const ProfileItem(
                 teacherBranch: "Flutter dev",
                 teacherData:

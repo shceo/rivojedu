@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:edu/src/utils/size/size.dart'; // size.dart dan foydalanish
 import '../../../../theme/app_themes.dart';
 
 class TeacherDataItem extends StatefulWidget {
@@ -53,7 +53,7 @@ class _TeacherDataItemState extends State<TeacherDataItem> {
                   radius: 50.w,
                   backgroundImage: NetworkImage(widget.imageUrl),
                 ),
-          13.getH(),
+          13.verticalSpace,
           Text(
             widget.name,
             style: TextStyle(

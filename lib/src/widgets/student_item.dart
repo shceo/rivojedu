@@ -1,7 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/utils/size/size.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 
 class StudentItem extends StatelessWidget {
   const StudentItem({super.key});
@@ -41,7 +39,7 @@ class StudentItem extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           width: double.infinity,
           child: Center(
             child:
