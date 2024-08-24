@@ -153,7 +153,7 @@ class _SwipperItemState extends State<SwipperItem> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: 5.h, horizontal: 18.w),
+                            vertical: 5.h, horizontal: 17.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -161,14 +161,14 @@ class _SwipperItemState extends State<SwipperItem> {
                               "Dars 2.",
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 18.w,
+                                  fontSize: 16.w,
                                   fontWeight: FontWeight.w700),
                             ),
                             Text(
                               "Done",
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12.w,
+                                  fontSize: 10.w,
                                   fontWeight: FontWeight.w700),
                             ),
                           ],
