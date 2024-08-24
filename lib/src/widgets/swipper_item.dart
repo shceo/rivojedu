@@ -43,7 +43,7 @@ class _SwipperItemState extends State<SwipperItem> {
               "Modul 1",
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 25.w,
+                  fontSize: 22.w,
                   fontWeight: FontWeight.w700),
             ),
           ),
