@@ -99,7 +99,6 @@ class CoursesPage extends StatelessWidget {
                 ),
                 GestureDetector(
                     onTap: () {
-
                       Navigator.push(
                           context,
                           CupertinoDialogRoute(
@@ -122,7 +121,7 @@ class CoursesPage extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(5.w),
                   width: double.infinity,
-                  margin: EdgeInsets.symmetric(vertical: 100.h),
+                  margin: EdgeInsets.symmetric(vertical: 50.h),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.white,

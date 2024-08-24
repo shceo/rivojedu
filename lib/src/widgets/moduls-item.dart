@@ -15,10 +15,10 @@ class ModulsItem extends StatelessWidget {
           Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color : Colors.white,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child : Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
@@ -35,80 +35,80 @@ class ModulsItem extends StatelessWidget {
                         fontSize: 15,
                         fontWeight: FontWeight.w700),
                   ),
-                  const SizedBox(height: 8,),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   Container(
                       width: 135,
                       height: 9,
                       decoration: BoxDecoration(
-                          color : Colors.black.withOpacity(0.2),
-                          borderRadius : BorderRadius.circular(10)
-                      ),
-                      child : Row(
+                          color: Colors.black.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
                         children: [
                           Container(
                             width: 83,
                             height: 9,
                             decoration: BoxDecoration(
-                                color : blue,
-                                borderRadius : BorderRadius.circular(10)
-                            ),
+                                color: blue,
+                                borderRadius: BorderRadius.circular(10)),
                           ),
                         ],
-                      )
-                  )
+                      ))
                 ],
-              )
-          ),
+              )),
           Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color : Colors.white
-              ),
-              child : Row(
-                children: [
-                  Column(
-                    children: [
-                      Image.asset(CommonAssets.coin , width: 30, fit : BoxFit.cover),
-                      Text(
-                        "120",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      Text(
-                        "Tangalar",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(width: 30,),
-                  Column(
-                    children: [
-                      Image.asset(CommonAssets.star , width: 30, fit : BoxFit.cover),
-                      const Text(
-                        "11000",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const Text(
-                        "Ballar",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-          )
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20), color: Colors.white),
+            child: Row(
+              children: [
+                Column(
+                  children: [
+                    Image.asset(CommonAssets.coin,
+                        width: 30, fit: BoxFit.cover),
+                    Text(
+                      "120",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      "Tangalar",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 30,
+                ),
+                Column(
+                  children: [
+                    Image.asset(CommonAssets.star,
+                        width: 30, fit: BoxFit.cover),
+                    const Text(
+                      "11000",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    const Text(
+                      "Ballar",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

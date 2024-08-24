@@ -59,7 +59,7 @@ class MessageItem extends StatelessWidget {
                 Text(
                   "Hey, I just reviewed your work. It’s good but I think",
                   style: TextStyle(
-                    fontSize: 10.w,
+                    fontSize: 9.w,
                     color: blackDark,
                   ),
                   overflow: TextOverflow.ellipsis,
