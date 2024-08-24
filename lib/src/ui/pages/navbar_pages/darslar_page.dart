@@ -26,7 +26,7 @@ class _LessonsPageState extends State<LessonsPage> {
             fit: BoxFit.cover,
           ),
           Padding(
-            padding: EdgeInsets.all(20.w),
+            padding: EdgeInsets.only(left: 20.w, right: 20.w),
             child: ListView(
               children: [
                 Text(
