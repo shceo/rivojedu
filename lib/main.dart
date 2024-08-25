@@ -1,4 +1,3 @@
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:edu/rivojapp.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_bloc.dart';
 import 'package:edu/src/domain/blocs/nav_bloc/main_bloc.dart';
@@ -10,9 +9,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import 'firebase_options.dart';
 
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -27,7 +29,15 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  AwesomeNotifications().initialize;
+  // const AndroidInitializationSettings initializationSettingsAndroid =
+  //     AndroidInitializationSettings('@mipmap/ic_launcher');
+
+  // const InitializationSettings initializationSettings = InitializationSettings(
+  //   android: initializationSettingsAndroid,
+  // );
+
+  // await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
 
   ApiClient apiClient = ApiClient();
 

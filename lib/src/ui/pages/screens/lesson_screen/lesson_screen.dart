@@ -228,7 +228,7 @@ class _LessonScreenState extends State<LessonScreen> {
               },
               icon: SvgPicture.asset(
                 CommonAssets.skalpel,
-                height: 29.h,
+                height: 20.h,
               ),
             ),
             8.horizontalSpace,
