@@ -37,12 +37,12 @@ dependencies:
   flutter_swiper_view: ^1.1.8
   fluttertoast: ^8.2.6
   hive: ^2.2.3
-  awesome_notifications: ^0.8.2
   chart_sparkline: ^1.0.15+1
   firebase_core: 3.2.0
   video_player: ^2.9.1
   flutter_screenutil: ^5.9.3
   logger: ^2.0.2+1
+  flutter_local_notifications: ^17.2.2
   
 
 
