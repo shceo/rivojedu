@@ -6,7 +6,7 @@ class DarsItem extends StatelessWidget {
   const DarsItem(
       {super.key, required this.tap, required this.onTap, required this.text});
   final bool tap;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final String text;
 
   @override

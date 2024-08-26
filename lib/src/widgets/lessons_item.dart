@@ -7,17 +7,25 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 
 class LessonsItem extends StatelessWidget {
-  const LessonsItem({super.key});
+  const LessonsItem({super.key, required this.id, required this.valueChanged, required this.swiperControl});
+
+  final int id;
+  final ValueChanged<int> valueChanged;
+  final SwiperController swiperControl;
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AllLessonsBloc, AllLessonsState>(
-      listener: (context, state) {
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return SizedBox(
           height: 170.h,
           child: Swiper(
+            controller: swiperControl,
+            loop: false,
+            onIndexChanged: (v) {
+              valueChanged.call(v);
+            },
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.symmetric(horizontal: 5.w),
@@ -44,49 +52,52 @@ class LessonsItem extends StatelessWidget {
                       },
                       child: Container(
                         width: double.infinity,
-                        padding: const EdgeInsets.all(16),
-                        decoration: const BoxDecoration(
-                            color: blue,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20))),
+                        padding: EdgeInsets.all(16.r),
+                        decoration: BoxDecoration(
+                          color: blue,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20.r),
+                            topRight: Radius.circular(20.r),
+                          ),
+                        ),
                         child: Column(
                           children: [
-                            const Align(
+                            Align(
                               alignment: Alignment.topLeft,
                               child: Text(
-                                "Rasmlarni qayta ishlash...",
+                                state.lessons[index].title,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 20,
+                                    fontSize: 20.sp,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
-                            const Text(
-                              "80",
+                            Text(
+                              state.lessons[index].number.toString(),
                               style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500),
+                                color: Colors.white,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
+                            10.verticalSpace,
                             Container(
-                              padding: const EdgeInsets.all(1),
-                              width: 220,
-                              height: 27,
+                              padding: EdgeInsets.all(1.sp),
+                              width: 220.w,
+                              height: 27.h,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(20.r),
                               ),
                               child: Row(
                                 children: [
                                   Container(
-                                    width: 160,
+                                    width: 160.w,
                                     decoration: BoxDecoration(
                                       color: blue,
-                                      borderRadius: BorderRadius.circular(20),
+                                      borderRadius: BorderRadius.circular(20.r),
                                     ),
                                   ),
                                 ],
@@ -98,12 +109,12 @@ class LessonsItem extends StatelessWidget {
                     ),
                     Padding(
                       padding:
-                          EdgeInsets.symmetric(vertical: 5.h, horizontal: 18.w),
+                      EdgeInsets.symmetric(vertical: 5.h, horizontal: 18.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Dars 2.",
+                            "Dars ${id + 1}",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18.w,
@@ -123,9 +134,9 @@ class LessonsItem extends StatelessWidget {
                 ),
               );
             },
-            itemCount: 3,
-            viewportFraction: 0.8,
-            scale: 0.9,
+            itemCount: state.lessons.length,
+            viewportFraction: 0.8.sp,
+            scale: 0.9.sp,
             pagination: null,
             control: null,
           ),

@@ -13,16 +13,20 @@ class AllLessonsRepository {
 
   Future<List<AllLessonsModel>> getAllLessons({required String id}) async {
     try {
-      final response = await apiClient.request(
-          url: ApiConstants.allLessons, method: "GET", header: {"moduleId": id});
+      final url = "${ApiConstants.allLessons}?moduleId=$id";
+      final response = await apiClient.request(url: url, method: "GET");
       final data = jsonDecode(response);
 
-      return data
-          .map((dataJson) =>
-              AllLessonsModel.fromJson(dataJson as Map<String, dynamic>))
-          .toList();
+      if (data is List) {
+        return data
+            .map((dataJson) =>
+            AllLessonsModel.fromJson(dataJson as Map<String, dynamic>))
+            .toList();
+      } else {
+        throw ApiException({'message': 'Invalid data format'}, statusCode: 0, url: url);
+      }
     } on ApiException catch (e) {
-      throw ErrorModel(message: e.toString());
+      throw ErrorModel(message: e.body["message"]);
     }
   }
 }

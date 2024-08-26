@@ -18,7 +18,6 @@ class AllModulesRepository {
         method: "GET",
       );
       final List<dynamic> data = jsonDecode(response);
-
       return data
           .map((dataJson) => AllModulesModel.fromJson(dataJson as Map<String, dynamic>))
           .toList();
