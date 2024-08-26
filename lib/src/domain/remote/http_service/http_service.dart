@@ -19,7 +19,7 @@ class HttpService implements ApiClientImpl {
     final String accessToken = StorageRepository.getString(key: "access_token");
 
     if (accessToken.isNotEmpty) {
-      requestHeader.addAll({'Authorization': 'token $accessToken'});
+      requestHeader.addAll({"Authorization": "Bearer $accessToken"});
     }
 
     return requestHeader;
