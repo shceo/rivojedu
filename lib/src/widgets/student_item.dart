@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/domain/blocs/top_users_bloc/top_users_bloc.dart';
+import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +10,7 @@ class StudentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TopUsersBloc, TopUsersState>(
+    return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         return Stack(
           children: [
@@ -26,7 +26,7 @@ class StudentItem extends StatelessWidget {
                 children: [
                   Image.asset(CommonAssets.coin, width: 30, fit: BoxFit.cover),
                   Text(
-                    state.topUsers[0].percentage.toString(),
+                    state.userModel.coin.toString(),
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20.sp,
@@ -34,7 +34,7 @@ class StudentItem extends StatelessWidget {
                   ),
                   30.horizontalSpace,
                   Text(
-                    state.topUsers[0].percentage.toString(),
+                    state.userModel.totalScore.toString(),
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20.sp,
@@ -55,13 +55,13 @@ class StudentItem extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.r),
                       border: Border.all(width: 2, color: Colors.white)),
-                  child: state.topUsers[0].avatar.isEmpty
+                  child: state.userModel.avatar.isEmpty
                       ? Image.asset(CommonAssets.avatar,
                           width: 75.sp, fit: BoxFit.cover)
                       : CircleAvatar(
                           radius: 35.r,
                           backgroundImage: CachedNetworkImageProvider(
-                            state.topUsers[0].avatar,
+                            state.userModel.avatar,
                           ),
                         ),
                 ),

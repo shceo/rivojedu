@@ -16,7 +16,17 @@ class UserRepository {
       final response =
           await apiClient.request(url: ApiConstants.getUserData, method: "GET");
       final data = jsonDecode(response);
-      return UserModel.fromJson(data);
+      UserModel user = UserModel.fromJson(data);
+      final coinAndScore = await apiClient.request(
+        url: "${ApiConstants.getCoin}/${user.phoneNumber}",
+        method: "GET",
+      );
+      final coinData = jsonDecode(coinAndScore);
+      user = user.copyWith(
+        coin: coinData["coin"],
+        totalScore: coinData["totalScore"],
+      );
+      return user;
     } on ApiException catch (e) {
       throw ErrorModel(message: e.toString());
     }

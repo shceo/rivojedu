@@ -45,19 +45,21 @@ class LessonsItem extends StatelessWidget {
                 child: Column(
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        Navigator.of(context, rootNavigator: true).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return LessonScreen(
-                                lessonsName: state.lessons[index].title,
-                                logo: state.lessons[index].cover,
-                                videoPath: state.lessons[index].source,
+                      onTap: state.lessons[index].source.isEmpty
+                          ? null
+                          : () {
+                              Navigator.of(context, rootNavigator: true).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return LessonScreen(
+                                      lessonsName: state.lessons[index].title,
+                                      logo: state.lessons[index].cover,
+                                      videoPath: state.lessons[index].source,
+                                    );
+                                  },
+                                ),
                               );
                             },
-                          ),
-                        );
-                      },
                       child: Container(
                         width: double.infinity,
                         padding: EdgeInsets.all(16.r),
@@ -91,26 +93,37 @@ class LessonsItem extends StatelessWidget {
                               ),
                             ),
                             10.verticalSpace,
-                            Container(
-                              padding: EdgeInsets.all(1.sp),
-                              width: 220.w,
-                              height: 27.h,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20.r),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 160.w,
+                            state.lessons[index].source.isNotEmpty
+                                ? Container(
+                                    padding: EdgeInsets.all(1.sp),
+                                    width: 220.w,
+                                    height: 27.h,
                                     decoration: BoxDecoration(
-                                      color: blue,
+                                      color: Colors.white,
                                       borderRadius: BorderRadius.circular(20.r),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 160.w,
+                                          decoration: BoxDecoration(
+                                            color: blue,
+                                            borderRadius:
+                                                BorderRadius.circular(20.r),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                : Center(
+                                    child: Text(
+                                      "Bu dars uchun ruxsat yo'q",
+                                      style: TextStyle(
+                                          color: red,
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
                           ],
                         ),
                       ),

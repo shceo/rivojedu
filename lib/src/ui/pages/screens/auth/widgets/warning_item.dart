@@ -1,6 +1,6 @@
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../theme/app_themes.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WarningItem extends StatelessWidget {
   const WarningItem({
@@ -19,12 +19,12 @@ class WarningItem extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(
-        vertical: (28),
-        horizontal: (45),
+        vertical: 28.h,
+        horizontal: 45.w,
       ),
       decoration: BoxDecoration(
         color: white,
-        borderRadius: BorderRadius.circular((20)),
+        borderRadius: BorderRadius.circular(20.w),
         boxShadow: [
           BoxShadow(
             // color white bolganda shadow korinmayabdi!!
@@ -39,14 +39,14 @@ class WarningItem extends StatelessWidget {
         children: [
           Image.asset(
             imagePath,
-            height: (70),
-            width: (70),
+            height: 70.h,
+            width: 70.w,
           ),
-          SizedBox(height: (14)),
+          14.verticalSpace,
           Text(
             text,
             style: TextStyle(
-              fontSize: (20),
+              fontSize: 20.sp,
               color: blackDark,
             ),
             textAlign: TextAlign.center,

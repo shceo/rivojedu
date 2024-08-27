@@ -1,8 +1,8 @@
-import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_scale_animation.dart';
+import 'package:edu/src/ui/pages/screens/auth/widgets/w_scale_animation.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../theme/app_themes.dart';
 
 class WButton extends StatelessWidget {
   final double? width;
