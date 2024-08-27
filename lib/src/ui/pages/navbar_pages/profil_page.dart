@@ -51,11 +51,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Stack(
                       children: [
+                        state.userModel.avatar.isEmpty?
                         Image.asset(
                           CommonAssets.avatar,
                           width: 60.w,
                           fit: BoxFit.cover,
-                        ),
+                        ):Image.network(state.userModel.avatar),
                         GestureDetector(
                           onTap: () {
                             customsShowBottomSheet(context);
