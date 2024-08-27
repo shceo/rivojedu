@@ -16,11 +16,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 
 class LessonScreen extends StatefulWidget {
-  const LessonScreen(
-      {super.key, required this.lessonsName, required this.logo});
+  const LessonScreen({
+    super.key,
+    required this.lessonsName,
+    required this.logo,
+    required this.videoPath,
+  });
 
   final String lessonsName;
   final String logo;
+  final String videoPath;
 
   @override
   State<LessonScreen> createState() => _LessonScreenState();
@@ -38,8 +43,7 @@ class _LessonScreenState extends State<LessonScreen>
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl(Uri.parse(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4"))
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoPath))
       ..initialize().then((_) {
         setState(() {});
       });

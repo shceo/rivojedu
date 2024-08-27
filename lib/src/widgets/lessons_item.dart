@@ -50,8 +50,10 @@ class LessonsItem extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) {
                               return LessonScreen(
-                                  lessonsName: state.lessons[index].title,
-                                  logo: state.lessons[index].cover);
+                                lessonsName: state.lessons[index].title,
+                                logo: state.lessons[index].cover,
+                                videoPath: state.lessons[index].source,
+                              );
                             },
                           ),
                         );
