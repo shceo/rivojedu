@@ -43,6 +43,7 @@ dependencies:
   video_player: ^2.9.1
   flutter_screenutil: ^5.9.3
   logger: ^2.0.2+1
+  cloud_firestore: ^5.1.0
   
 
 

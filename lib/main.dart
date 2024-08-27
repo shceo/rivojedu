@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:edu/rivojapp.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_bloc.dart';
+import 'package:edu/src/domain/blocs/message/chat_bloc.dart';
 import 'package:edu/src/domain/blocs/nav_bloc/main_bloc.dart';
 import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
 import 'package:edu/src/domain/entity/storage_repository.dart';
@@ -45,6 +46,8 @@ Future<void> main() async {
             create: (context) =>
                 AuthBloc(repository: context.read<AuthRepository>()),
           ),
+          BlocProvider(create: (context) => ChatBloc()),
+
         ],
         child: App(),
       ),

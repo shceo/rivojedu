@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/pages/screens/chat_screen.dart';
 import 'package:edu/src/ui/pages/screens/personal_message_screen.dart';
 import 'package:edu/src/widgets/message_item.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
@@ -36,7 +37,7 @@ class MessagesPage extends StatelessWidget {
                     voidCallback: () {
                       Navigator.of(context, rootNavigator: true).push(
                         MaterialPageRoute(
-                          builder: (_) => const PersonalMessage(),
+                          builder: (_) =>  ChatPage(),
                         ),
                       );
                     },
