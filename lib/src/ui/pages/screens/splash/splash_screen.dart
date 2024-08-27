@@ -1,6 +1,7 @@
 import 'package:edu/src/domain/blocs/all_lessons_bloc/all_lessons_bloc.dart';
 import 'package:edu/src/domain/blocs/all_modules_bloc/all_modules_bloc.dart';
 import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
+import 'package:edu/src/domain/blocs/top_users_bloc/top_users_bloc.dart';
 import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:edu/src/domain/entity/storage_repository.dart';
 import 'package:edu/src/ui/pages/routes/app_routes.dart';
@@ -24,6 +25,7 @@ class SplashScreen extends StatelessWidget {
             } else {
               context.read<AllModulesBloc>().add(GetAllModules());
               context.read<UserBloc>().add(GetUserData());
+              context.read<TopUsersBloc>().add(GetTopUsers());
               await Future.delayed(const Duration(seconds: 1), () {
                 context.read<AllLessonsBloc>().add(
                       GetModuleLessonsEvent(

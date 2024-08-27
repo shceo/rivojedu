@@ -14,7 +14,7 @@ class SendButton extends StatelessWidget {
       onTap: callback,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 12.h),
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.w),
           color: const Color(0xffd3d3d3),
