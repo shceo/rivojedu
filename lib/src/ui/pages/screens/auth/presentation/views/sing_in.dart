@@ -1,8 +1,11 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/domain/blocs/all_lessons_bloc/all_lessons_bloc.dart';
 import 'package:edu/src/domain/blocs/all_modules_bloc/all_modules_bloc.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_bloc.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_event.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_state.dart';
+import 'package:edu/src/domain/blocs/top_users_bloc/top_users_bloc.dart';
+import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:edu/src/domain/models/form_status.dart';
 import 'package:edu/src/ui/pages/routes/app_routes.dart';
 import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/button_container.dart';
@@ -32,11 +35,6 @@ class _SignInViewState extends State<SignInView> {
   @override
   void initState() {
     _phoneController.text = "+998 (";
-    _passwordController.addListener(() {
-      if(_passwordController.text.length == 8){
-        focusNode.unfocus();
-      }
-    });
     super.initState();
   }
 
@@ -110,13 +108,25 @@ class _SignInViewState extends State<SignInView> {
                 ),
                 const Spacer(),
                 BlocConsumer<AuthBloc, AuthState>(
-                  listener: (context, state) {
+                  listener: (context, state) async {
                     if (state.status == FormStatus.error) {
-                      Fluttertoast.showToast(
-                          msg: state.errorMessage);
+                      Fluttertoast.showToast(msg: state.errorMessage);
                     }
-                    if(state.status == FormStatus.success){
+                    if (state.status == FormStatus.success) {
                       context.read<AllModulesBloc>().add(GetAllModules());
+                      context.read<UserBloc>().add(GetUserData());
+                      context.read<TopUsersBloc>().add(GetTopUsers());
+                      await Future.delayed(const Duration(seconds: 1), () {
+                        context.read<AllLessonsBloc>().add(
+                              GetModuleLessonsEvent(
+                                  moduleId: context
+                                      .read<AllModulesBloc>()
+                                      .state
+                                      .allModules[0]
+                                      .moduleId),
+                            );
+                      });
+                      if (!context.mounted) return;
                       context.go(Routes.home);
                     }
                   },
