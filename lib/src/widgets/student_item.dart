@@ -15,11 +15,12 @@ class StudentItem extends StatelessWidget {
         return Stack(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 65, left: 10, right: 10),
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+              margin: EdgeInsets.only(top: 45.h, left: 10.w, right: 10.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20.r)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -52,13 +53,13 @@ class StudentItem extends StatelessWidget {
               child: Center(
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50.r),
                       border: Border.all(width: 2, color: Colors.white)),
                   child: state.topUsers[0].avatar.isEmpty
                       ? Image.asset(CommonAssets.avatar,
                           width: 75.sp, fit: BoxFit.cover)
                       : CircleAvatar(
-                          radius: 30.r,
+                          radius: 35.r,
                           backgroundImage: CachedNetworkImageProvider(
                             state.topUsers[0].avatar,
                           ),

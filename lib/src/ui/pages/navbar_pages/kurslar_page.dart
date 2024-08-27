@@ -28,7 +28,7 @@ class CoursesPage extends StatelessWidget {
                   children: [
                     state.userModel.avatar.isNotEmpty
                         ? CircleAvatar(
-                            radius: 30.r,
+                            radius: 25.r,
                             backgroundImage: CachedNetworkImageProvider(
                                 state.userModel.avatar),
                           )

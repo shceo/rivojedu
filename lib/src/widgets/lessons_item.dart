@@ -7,7 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 
 class LessonsItem extends StatelessWidget {
-  const LessonsItem({super.key, required this.id, required this.valueChanged, required this.swiperControl});
+  const LessonsItem(
+      {super.key,
+      required this.id,
+      required this.valueChanged,
+      required this.swiperControl});
 
   final int id;
   final ValueChanged<int> valueChanged;
@@ -45,7 +49,11 @@ class LessonsItem extends StatelessWidget {
                         Navigator.of(context, rootNavigator: true).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return LessonScreen(lessonsName: state.lessons[index].title);
+                              return LessonScreen(
+                                lessonsName: state.lessons[index].title,
+                                logo: state.lessons[index].cover,
+                                videoPath: state.lessons[index].source,
+                              );
                             },
                           ),
                         );

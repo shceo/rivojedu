@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/widgets/edit_password_item.dart';
 import 'package:edu/src/widgets/image_dialog.dart';
 import 'package:edu/src/widgets/password_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,21 +53,26 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Stack(
                       children: [
-                        state.userModel.avatar.isEmpty?
-                        Image.asset(
-                          CommonAssets.avatar,
-                          width: 60.w,
-                          fit: BoxFit.cover,
-                        ):Image.network(state.userModel.avatar),
-                        GestureDetector(
-                          onTap: () {
-                            customsShowBottomSheet(context);
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 40.w, left: 40.w),
+                        state.userModel.avatar.isEmpty
+                            ? Image.asset(
+                                CommonAssets.avatar,
+                                width: 60.w,
+                                fit: BoxFit.cover,
+                              )
+                            : CircleAvatar(
+                                radius: 40.r,
+                                backgroundImage: CachedNetworkImageProvider(
+                                    state.userModel.avatar)),
+                        Positioned(
+                          right: 0,
+                          bottom: 5.h,
+                          child: GestureDetector(
+                            onTap: () {
+                              customsShowBottomSheet(context);
+                            },
                             child: SvgPicture.asset(
                               CommonAssets.editPen,
-                              width: 20.w,
+                              width: 25.w,
                               fit: BoxFit.cover,
                             ),
                           ),
