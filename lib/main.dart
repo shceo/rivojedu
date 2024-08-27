@@ -4,12 +4,14 @@ import 'package:edu/src/domain/blocs/all_modules_bloc/all_modules_bloc.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_bloc.dart';
 import 'package:edu/src/domain/blocs/nav_bloc/main_bloc.dart';
 import 'package:edu/src/domain/blocs/splash_bloc/splash_screen_bloc.dart';
+import 'package:edu/src/domain/blocs/top_users_bloc/top_users_bloc.dart';
 import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:edu/src/domain/entity/storage_repository.dart';
 import 'package:edu/src/domain/remote/api_client.dart';
 import 'package:edu/src/domain/repositories/all_lessons_repository.dart';
 import 'package:edu/src/domain/repositories/all_modules_repository.dart';
 import 'package:edu/src/domain/repositories/auth_repository.dart';
+import 'package:edu/src/domain/repositories/top_users_repository.dart';
 import 'package:edu/src/domain/repositories/users_repository.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +23,7 @@ import 'firebase_options.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -44,7 +47,6 @@ Future<void> main() async {
 
   // await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
-
   ApiClient apiClient = ApiClient();
 
   runApp(
@@ -58,6 +60,8 @@ Future<void> main() async {
             create: (context) => AllLessonsRepository(apiClient: apiClient)),
         RepositoryProvider(
             create: (context) => UserRepository(apiClient: apiClient)),
+        RepositoryProvider(
+            create: (context) => TopUsersRepository(apiClient: apiClient)),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -78,6 +82,10 @@ Future<void> main() async {
           BlocProvider(
             create: (context) =>
                 UserBloc(userRepository: context.read<UserRepository>()),
+          ),
+          BlocProvider(
+            create: (context) => TopUsersBloc(
+                topUsersRepository: context.read<TopUsersRepository>()),
           ),
         ],
         child: App(),

@@ -45,7 +45,7 @@ class LessonsItem extends StatelessWidget {
                         Navigator.of(context, rootNavigator: true).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return const LessonScreen();
+                              return LessonScreen(lessonsName: state.lessons[index].title);
                             },
                           ),
                         );

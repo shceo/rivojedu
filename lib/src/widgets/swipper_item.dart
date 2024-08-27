@@ -141,6 +141,7 @@ class _SwipperItemState extends State<SwipperItem> {
                               : () {
                                   setState(() {
                                     selectedModul = index;
+                                    selectedLesson = 0;
                                   });
                                   context.read<AllLessonsBloc>().add(
                                         GetModuleLessonsEvent(

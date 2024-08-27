@@ -1,29 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/domain/entity/storage_repository.dart';
+import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:edu/src/ui/pages/screens/notification_screen.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/widgets/moduls-item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({super.key});
-
-  Future<String> _getUserName() async {
-    String? userName = await StorageRepository.getString(key: 'user_name');
-    if (userName.isEmpty) {
-      throw Exception("User name not found");
-    }
-    return userName;
-  }
-
-  Future<String> _getUserAvatar() async {
-    String? avatarUrl = await StorageRepository.getString(key: 'avatar');
-    if (avatarUrl.isEmpty) {
-      throw Exception("Avatar not found");
-    }
-    return avatarUrl;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,81 +22,59 @@ class CoursesPage extends StatelessWidget {
           Positioned(
             top: 40.h,
             left: 21.w,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
+            child: BlocBuilder<UserBloc, UserState>(
+              builder: (context, state) {
+                return Row(
                   children: [
-                    FutureBuilder<String>(
-                      future: _getUserAvatar(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return CircularProgressIndicator();
-                        } else if (snapshot.hasError) {
-                          return Icon(Icons.error, color: Colors.red);
-                        } else {
-                          String avatarUrl = snapshot.data!;
-                          return CircleAvatar(
-                            radius: 30,
-                            backgroundImage: NetworkImage(avatarUrl),
-                          );
-                        }
-                      },
-                    ),
-                    FutureBuilder<String>(
-                      future: _getUserName(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return CircularProgressIndicator();
-                        } else if (snapshot.hasError) {
-                          return Text(
-                            "Error: ${snapshot.error}",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15.w,
-                                fontWeight: FontWeight.w400),
-                          );
-                        } else {
-                          String userName = snapshot.data!;
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Welcome,",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15.w,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                userName,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 25.w,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                            ],
-                          );
-                        }
-                      },
-                    ),
+                    state.userModel.avatar.isNotEmpty
+                        ? CircleAvatar(
+                            radius: 30.r,
+                            backgroundImage: CachedNetworkImageProvider(
+                                state.userModel.avatar),
+                          )
+                        : Icon(
+                            CupertinoIcons.person_alt_circle,
+                            size: 40.sp,
+                            color: grey,
+                          ),
+                    5.horizontalSpace,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Xush kelibsiz,",
+                          style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w500,
+                              color: white),
+                        ),
+                        Text(
+                          "${state.userModel.name} ${state.userModel.surname}.",
+                          style: TextStyle(
+                              fontSize: 25.sp,
+                              fontWeight: FontWeight.bold,
+                              color: white),
+                        ),
+                      ],
+                    )
                   ],
-                ),
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          CupertinoDialogRoute(
-                              builder: (context) => const NotificationScreen(),
-                              context: context));
-                    },
-                    child: Image.asset(CommonAssets.notification,
-                        width: 30, fit: BoxFit.cover))
-              ],
+                );
+              },
             ),
           ),
+          Positioned(
+              top: 50.h,
+              right: 30.w,
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        CupertinoDialogRoute(
+                            builder: (context) => const NotificationScreen(),
+                            context: context));
+                  },
+                  child: Image.asset(CommonAssets.notification,
+                      width: 30, fit: BoxFit.cover))),
           Padding(
             padding: const EdgeInsets.all(21),
             child: ListView(
