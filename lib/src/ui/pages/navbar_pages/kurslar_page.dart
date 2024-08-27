@@ -51,7 +51,7 @@ class CoursesPage extends StatelessWidget {
                         Text(
                           "${state.userModel.name} ${state.userModel.surname}.",
                           style: TextStyle(
-                              fontSize: 25.sp,
+                              fontSize: 20.sp,
                               fontWeight: FontWeight.bold,
                               color: white),
                         ),
