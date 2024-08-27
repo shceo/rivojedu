@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/generated/assets.dart';
 import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/comment_item.dart';
@@ -15,9 +16,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:video_player/video_player.dart';
 
 class LessonScreen extends StatefulWidget {
-  const LessonScreen({super.key, required this.lessonsName});
+  const LessonScreen(
+      {super.key, required this.lessonsName, required this.logo});
 
   final String lessonsName;
+  final String logo;
 
   @override
   State<LessonScreen> createState() => _LessonScreenState();
@@ -28,6 +31,7 @@ class _LessonScreenState extends State<LessonScreen>
   late VideoPlayerController _controller;
   bool isPlaying = false;
   bool nextItem = false;
+  bool isFirstTime = true;
   TextEditingController controller = TextEditingController();
   late AnimationController animationController;
 
@@ -47,6 +51,8 @@ class _LessonScreenState extends State<LessonScreen>
       if (!_controller.value.isPlaying) {
         animationController.reverse();
         isPlaying = false;
+        isFirstTime = true;
+        setState(() {});
       }
     });
   }
@@ -63,55 +69,63 @@ class _LessonScreenState extends State<LessonScreen>
     return Scaffold(
       body: Column(
         children: [
-          _controller.value.isInitialized
-              ? Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      child: VideoPlayer(_controller),
-                    ),
-                    Positioned(
-                      top: 30.h,
-                      left: 10.w,
-                      child: IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: SvgPicture.asset(
-                          Assets.vectorsArrowBack,
-                          height: 20.h,
-                        ),
-                      ),
-                    ),
-                    if (isPlaying == false)
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (isPlaying) {
-                              _controller.pause();
-                              animationController.reverse();
-                            } else {
-                              _controller.play();
-                              animationController.forward();
-                            }
-                            isPlaying = !isPlaying;
-                          });
-                        },
-                        child: AnimatedIcon(
-                          icon: AnimatedIcons.play_pause,
-                          progress: animationController,
-                          size: 60.sp,
-                          color: white,
-                        ),
-                      ),
-                  ],
-                )
-              : const CircularProgressIndicator(),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              isFirstTime
+                  ? CachedNetworkImage(
+                      imageUrl: widget.logo,
+                      height: 180.h,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    )
+                  : _controller.value.isInitialized
+                      ? AspectRatio(
+                          aspectRatio: _controller.value.aspectRatio,
+                          child: VideoPlayer(_controller),
+                        )
+                      : const CircularProgressIndicator(),
+              Positioned(
+                top: 30.h,
+                left: 10.w,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: SvgPicture.asset(
+                    Assets.vectorsArrowBack,
+                    height: 20.h,
+                  ),
+                ),
+              ),
+              if (isPlaying == false)
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (isPlaying) {
+                        _controller.pause();
+                        animationController.reverse();
+                      } else {
+                        _controller.play();
+                        animationController.forward();
+                        isFirstTime = false;
+                      }
+                      isPlaying = !isPlaying;
+                    });
+                  },
+                  child: AnimatedIcon(
+                    icon: AnimatedIcons.play_pause,
+                    progress: animationController,
+                    size: 60.sp,
+                    color: white,
+                  ),
+                ),
+            ],
+          ),
           10.verticalSpace,
           Expanded(
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 20.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               children: [
                 const TeacherItem(
                   teacherField: "SMM o’qituvchisi",
@@ -161,10 +175,10 @@ class _LessonScreenState extends State<LessonScreen>
                         const SizedBox(height: 4),
                         ...List.generate(
                           nextItem == false ? 3 : 7,
-                              (index) => const CommentItem(
+                          (index) => const CommentItem(
                             imgUrl: CommonAssets.profile,
                             title:
-                            "She is so nice and also very beautiful, and I think I’ll make a huge improvement through her help",
+                                "She is so nice and also very beautiful, and I think I’ll make a huge improvement through her help",
                             dateText: "21 May 2022",
                             name: "Thao Nguyen",
                           ),
@@ -172,11 +186,11 @@ class _LessonScreenState extends State<LessonScreen>
                         const SizedBox(height: 6),
                         nextItem == false
                             ? NextButtonItem(
-                          voidCallback: () {
-                            nextItem = !nextItem;
-                            setState(() {});
-                          },
-                        )
+                                voidCallback: () {
+                                  nextItem = !nextItem;
+                                  setState(() {});
+                                },
+                              )
                             : const SizedBox(),
                       ],
                     ),
@@ -230,7 +244,6 @@ class _LessonScreenState extends State<LessonScreen>
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
               children: [
                 IconButton(
                   onPressed: () {
