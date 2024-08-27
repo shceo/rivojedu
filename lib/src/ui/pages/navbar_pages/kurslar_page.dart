@@ -107,7 +107,7 @@ class CoursesPage extends StatelessWidget {
                           "Progress",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 20.w,
+                              fontSize: 18.w,
                               fontWeight: FontWeight.w700),
                         ),
                       ),
@@ -132,11 +132,23 @@ class CoursesPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          Image.asset(
-                            CommonAssets.graph,
-                            width: 270.w,
-                            height: 300.h,
-                          )
+                          Expanded(
+                            child: SizedBox(
+                              height: 300.h,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: List.generate(
+                                  12,
+                                  (index) => Container(
+                                    width: 1.w,
+                                    height: 270.h,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       Row(
