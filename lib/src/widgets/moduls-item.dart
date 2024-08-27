@@ -1,6 +1,9 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ModulsItem extends StatelessWidget {
   const ModulsItem({super.key});
@@ -61,52 +64,56 @@ class ModulsItem extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: Colors.white),
-            child: Row(
-              children: [
-                Column(
+            child: BlocBuilder<UserBloc, UserState>(
+              builder: (context, state) {
+                return Row(
                   children: [
-                    Image.asset(CommonAssets.coin,
-                        width: 30, fit: BoxFit.cover),
-                    Text(
-                      "120",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700),
+                    Column(
+                      children: [
+                        Image.asset(CommonAssets.coin,
+                            width: 30, fit: BoxFit.cover),
+                        Text(
+                          state.userModel.coin.toString(),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "Tangalar",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
-                    Text(
-                      "Tangalar",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Column(
+                      children: [
+                        Image.asset(CommonAssets.star,
+                            width: 30, fit: BoxFit.cover),
+                        Text(
+                          state.userModel.totalScore.toString(),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "Ballar",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
                     ),
                   ],
-                ),
-                const SizedBox(
-                  width: 30,
-                ),
-                Column(
-                  children: [
-                    Image.asset(CommonAssets.star,
-                        width: 30, fit: BoxFit.cover),
-                    const Text(
-                      "11000",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700),
-                    ),
-                    const Text(
-                      "Ballar",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-              ],
+                );
+              },
             ),
           ),
         ],

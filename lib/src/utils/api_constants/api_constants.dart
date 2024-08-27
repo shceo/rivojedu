@@ -5,4 +5,5 @@ class ApiConstants {
   static const String allLessons = '${baseUrl}student/getAllLessonsOfModule';
   static const String getUserData = '${baseUrl}user/get-user-details';
   static const String getRanking= '${baseUrl}progress/get-ranking-page';
+  static const String getCoin = '${baseUrl}progress/get-progress';
 }
