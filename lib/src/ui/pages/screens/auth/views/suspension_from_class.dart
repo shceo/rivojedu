@@ -1,8 +1,8 @@
 
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../../theme/app_themes.dart';
 import '../widgets/warning_item.dart';
 
 class SuspensionFromScreen extends StatelessWidget {

@@ -1,10 +1,10 @@
-import 'package:edu/src/ui/pages/screens/auth/presentation/views/sing_in.dart';
+import 'package:edu/src/ui/pages/screens/auth/views/sing_in.dart';
+import 'package:edu/src/ui/pages/screens/lesson_screen/widgets/widgets.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../theme/app_themes.dart';
 import '../widgets/w_button.dart';
-import '../widgets/widgets.dart';
 
 class ResentPassword extends StatefulWidget {
   const ResentPassword({super.key});
@@ -31,11 +31,11 @@ class _ResentPasswordState extends State<ResentPassword> {
           onTap: () {},
         ),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: (20.w)),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: (62.h)),
+              SizedBox(height: 62.h),
               Text(
                 "Yangi parol yarating",
                 style: TextStyle(
@@ -53,17 +53,17 @@ class _ResentPasswordState extends State<ResentPassword> {
               WButton(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return SignInView();
+                    return const SignInView();
                   }));
                 },
-                padding: EdgeInsets.symmetric(vertical: (16.w)),
+                padding: EdgeInsets.symmetric(vertical: 16.w),
                 color: blue,
                 child: Text(
                   "Saqlash",
-                  style: TextStyle(fontSize: (18.w), color: white),
+                  style: TextStyle(fontSize: 18.w, color: white),
                 ),
               ),
-              SizedBox(height: (42.h)),
+              42.verticalSpace
             ],
           ),
         ),

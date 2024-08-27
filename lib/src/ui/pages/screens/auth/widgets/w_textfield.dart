@@ -1,9 +1,9 @@
-import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/stroke_paint.dart';
+import 'package:edu/src/ui/pages/screens/auth/widgets/stroke_paint.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../../theme/app_themes.dart';
 import 'mandatory_text.dart';
 
 class WTextField extends StatefulWidget {

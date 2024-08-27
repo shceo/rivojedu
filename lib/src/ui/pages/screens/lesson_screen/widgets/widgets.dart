@@ -1,10 +1,10 @@
-
 import 'package:edu/assets/constants/common_assets.dart';
-import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_textfield.dart';
+import 'package:edu/src/ui/pages/screens/auth/widgets/w_textfield.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../theme/app_themes.dart';
 
 class Appbar extends StatelessWidget implements PreferredSize {
   const Appbar({
@@ -25,18 +25,18 @@ class Appbar extends StatelessWidget implements PreferredSize {
         child: Container(
           height: (56),
           margin: EdgeInsets.only(
-            left: (20),
-            top: (10),
-            bottom: (10),
+            left: 20.w,
+            top: 10.h,
+            bottom: 10.h,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular((10)),
+            borderRadius: BorderRadius.circular(10.r),
             color: blue.withOpacity(.5),
           ),
           child: Center(
             child: SvgPicture.asset(
               CommonAssets.arrowBack,
-              height: (17.5),
+              height: 17.5.h,
             ),
           ),
         ),
@@ -44,7 +44,7 @@ class Appbar extends StatelessWidget implements PreferredSize {
       title: Text(
         title,
         style: TextStyle(
-          fontSize: (25),
+          fontSize: 25.sp,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -53,7 +53,7 @@ class Appbar extends StatelessWidget implements PreferredSize {
   }
 
   @override
-  Size get preferredSize => Size(double.infinity, (56));
+  Size get preferredSize => const Size(double.infinity, 56);
 
   @override
   Widget get child => throw UnimplementedError();
@@ -76,11 +76,11 @@ class VerticalItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: (10)),
+          padding: EdgeInsets.only(left: 10.w),
           child: Text(
             "Yangi parol",
             style: TextStyle(
-              fontSize: (18),
+              fontSize: 18.sp,
               color: blackDark,
               fontWeight: FontWeight.bold,
             ),
@@ -94,19 +94,19 @@ class VerticalItem extends StatelessWidget {
           hasSuffixIcon: !true,
           isObscure: true,
         ),
-        SizedBox(height:(10)),
+        10.verticalSpace,
         Padding(
-          padding: EdgeInsets.only(left: (10)),
+          padding: EdgeInsets.only(left: 10.sp),
           child: Text(
             "Parolni tasdiqlang",
             style: TextStyle(
-              fontSize: (18),
+              fontSize: 18.sp,
               color: blackDark,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        SizedBox(height: (10)),
+        10.verticalSpace,
         WTextField(
           height: (60),
           hintText: "************",

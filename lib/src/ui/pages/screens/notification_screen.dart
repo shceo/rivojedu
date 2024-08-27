@@ -1,7 +1,8 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/ui/pages/screens/auth/widgets/w_back_button.dart';
 import 'package:edu/src/widgets/notification_item.dart';
-import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_back_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -19,13 +20,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
         Image.asset(CommonAssets.background,
             width: double.infinity, fit: BoxFit.cover),
         Padding(
-          padding: const EdgeInsets.all(20),
+          padding:  EdgeInsets.all(20.sp),
           child: ListView(
             children: [
-              // const SizedBox(
-              //   height: 25,
-              // ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   WBackButton(),
@@ -33,17 +31,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     "Eslatmalar",
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 25,
+                        fontSize: 25.sp,
                         fontWeight: FontWeight.w700),
                   ),
-                  SizedBox(
-                    width: 10,
-                  )
+                  10.verticalSpace,
                 ],
               ),
-              const SizedBox(
-                height: 50,
-              ),
+              50.verticalSpace,
               ...List.generate(10, (index) {
                 return const NotificationItem();
               })

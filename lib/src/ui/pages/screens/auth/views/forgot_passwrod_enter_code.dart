@@ -1,9 +1,9 @@
-import 'package:edu/src/ui/pages/screens/auth/presentation/views/reset_password.dart';
-import 'package:edu/src/ui/pages/screens/auth/presentation/widgets/w_back_button.dart';
+import 'package:edu/src/ui/pages/screens/auth/views/reset_password.dart';
+import 'package:edu/src/ui/pages/screens/auth/widgets/w_back_button.dart';
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
-import '../../../../../theme/app_themes.dart';
 import '../widgets/buton_item.dart';
 
 class ForgotPasswordEnterCode extends StatefulWidget {
@@ -58,17 +58,17 @@ class _ForgotPasswordEnterCodeState extends State<ForgotPasswordEnterCode> {
                   return s == '2222' ? null : "Noto'g'ri parol";
                 },
                 defaultPinTheme: PinTheme(
-                  width: 67,
-                  height: 60,
+                  width: 67.w,
+                  height: 60.h,
                   textStyle: const TextStyle(color: Colors.black),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.r),
                     color: textFieldBorder,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            24.verticalSpace,
             RichText(
               text: TextSpan(
                 children: <TextSpan>[
@@ -90,7 +90,7 @@ class _ForgotPasswordEnterCodeState extends State<ForgotPasswordEnterCode> {
                     MaterialPageRoute(builder: (_) => const ResentPassword()),
                   );
                 }),
-            const SizedBox(height: 43)
+            43.verticalSpace,
           ],
         ),
       ),

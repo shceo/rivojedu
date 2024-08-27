@@ -1,10 +1,11 @@
+import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../theme/app_themes.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ButtonItem extends StatelessWidget {
   const ButtonItem({super.key, required this.text, required this.onTap});
+
   final String text;
   final VoidCallback onTap;
 
@@ -13,16 +14,14 @@ class ButtonItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin : const EdgeInsets.symmetric(horizontal: 27),
+        margin: EdgeInsets.symmetric(horizontal: 27.w),
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: EdgeInsets.symmetric(vertical: 16.h),
         decoration: BoxDecoration(
-            color : blue,
-            borderRadius: BorderRadius.circular(10)
-        ),
-        child: Text(
+            color: blue, borderRadius: BorderRadius.circular(10.r)),
+        child: const Text(
           "Keyingisi",
-          style:TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w600,
           ),
           textAlign: TextAlign.center,
