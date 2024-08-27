@@ -1,4 +1,5 @@
 import 'package:edu/assets/constants/common_assets.dart';
+import 'package:edu/src/domain/blocs/all_modules_bloc/all_modules_bloc.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_bloc.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_event.dart';
 import 'package:edu/src/domain/blocs/auth_bloc/auth_state.dart';
@@ -115,6 +116,7 @@ class _SignInViewState extends State<SignInView> {
                           msg: state.errorMessage);
                     }
                     if(state.status == FormStatus.success){
+                      context.read<AllModulesBloc>().add(GetAllModules());
                       context.go(Routes.home);
                     }
                   },
