@@ -59,10 +59,9 @@ class _SwipperItemState extends State<SwipperItem> {
                   ),
                   5.verticalSpace,
                   if (allLessonsState.status == FormStatus.loading)
-                  20.verticalSpace,
-
-
-                  if (allLessonsState.status != FormStatus.error && allLessonsState.status != FormStatus.loading)
+                    20.verticalSpace,
+                  if (allLessonsState.status != FormStatus.error &&
+                      allLessonsState.status != FormStatus.loading)
                     SizedBox(
                       height: 20.h,
                       child: ListView.separated(

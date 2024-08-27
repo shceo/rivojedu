@@ -111,7 +111,7 @@ class _LessonScreenState extends State<LessonScreen>
           10.verticalSpace,
           Expanded(
             child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 20.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               children: [
                 const TeacherItem(
                   teacherField: "SMM o’qituvchisi",
@@ -161,10 +161,10 @@ class _LessonScreenState extends State<LessonScreen>
                         const SizedBox(height: 4),
                         ...List.generate(
                           nextItem == false ? 3 : 7,
-                              (index) => const CommentItem(
+                          (index) => const CommentItem(
                             imgUrl: CommonAssets.profile,
                             title:
-                            "She is so nice and also very beautiful, and I think I’ll make a huge improvement through her help",
+                                "She is so nice and also very beautiful, and I think I’ll make a huge improvement through her help",
                             dateText: "21 May 2022",
                             name: "Thao Nguyen",
                           ),
@@ -172,11 +172,11 @@ class _LessonScreenState extends State<LessonScreen>
                         const SizedBox(height: 6),
                         nextItem == false
                             ? NextButtonItem(
-                          voidCallback: () {
-                            nextItem = !nextItem;
-                            setState(() {});
-                          },
-                        )
+                                voidCallback: () {
+                                  nextItem = !nextItem;
+                                  setState(() {});
+                                },
+                              )
                             : const SizedBox(),
                       ],
                     ),
@@ -230,7 +230,6 @@ class _LessonScreenState extends State<LessonScreen>
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
               children: [
                 IconButton(
                   onPressed: () {
@@ -278,4 +277,3 @@ class _LessonScreenState extends State<LessonScreen>
     );
   }
 }
-

@@ -109,7 +109,7 @@ class LessonsItem extends StatelessWidget {
                     ),
                     Padding(
                       padding:
-                      EdgeInsets.symmetric(vertical: 5.h, horizontal: 18.w),
+                      EdgeInsets.symmetric(vertical: 1.h, horizontal: 15.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -117,7 +117,7 @@ class LessonsItem extends StatelessWidget {
                             "Dars ${id + 1}",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 18.w,
+                                fontSize: 13.w,
                                 fontWeight: FontWeight.w700),
                           ),
                           Text(
