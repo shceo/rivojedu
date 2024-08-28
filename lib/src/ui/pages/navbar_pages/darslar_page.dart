@@ -42,12 +42,15 @@ class _LessonsPageState extends State<LessonsPage> {
                 ),
                 const StudentItem(),
                 SizedBox(height: 26.h),
-                Text(
-                  "Best Students",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25.w,
-                      fontWeight: FontWeight.w700),
+                Padding(
+                  padding: EdgeInsets.only(left: 5.w),
+                  child: Text(
+                    "Best Students",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25.w,
+                        fontWeight: FontWeight.w700),
+                  ),
                 ),
                 13.verticalSpace,
                 BlocBuilder<TopUsersBloc, TopUsersState>(
