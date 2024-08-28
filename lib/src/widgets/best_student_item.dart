@@ -38,14 +38,14 @@ class BestStudentItem extends StatelessWidget {
                   ),
                   child: avatar.isEmpty
                       ? Image.asset(
-                          CommonAssets.avatar,
-                          width: 65.w,
-                          fit: BoxFit.cover,
-                        )
+                    CommonAssets.avatar,
+                    width: 65.w,
+                    fit: BoxFit.cover,
+                  )
                       : CircleAvatar(
-                          radius: 30.r,
-                          backgroundImage: CachedNetworkImageProvider(avatar),
-                        ),
+                    radius: 30.r,
+                    backgroundImage: CachedNetworkImageProvider(avatar),
+                  ),
                 ),
                 SizedBox(
                   width: 85.w,
@@ -85,6 +85,8 @@ class BestStudentItem extends StatelessWidget {
               ),
             ),
           ),
+          if(name.length < 5)
+            10.verticalSpace,
         ],
       ),
     );
