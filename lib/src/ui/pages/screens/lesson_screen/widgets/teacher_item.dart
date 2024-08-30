@@ -24,7 +24,7 @@ class TeacherItem extends StatelessWidget {
           radius: 33.w,
           backgroundImage: const AssetImage(CommonAssets.profile),
         ),
-        12.verticalSpace,
+        12.horizontalSpace,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
