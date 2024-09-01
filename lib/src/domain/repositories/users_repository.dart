@@ -31,4 +31,16 @@ class UserRepository {
       throw ErrorModel(message: e.toString());
     }
   }
+
+  Future<void> updateUserData(UserModel user) async {
+    try {
+      await apiClient.request(
+        url: ApiConstants.updateUserData,
+        method: "PUT",
+        body: user.toJson(),
+      );
+    } on ApiException catch (e) {
+      throw ErrorModel(message: e.body["friendlyMessage"]);
+    }
+  }
 }

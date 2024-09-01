@@ -11,6 +11,7 @@ part 'user_state.dart';
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc({required this.userRepository}) : super(UserState.init()) {
     on<GetUserData>(_getUserData);
+    on<PutUserData>(_putUserData);
   }
 
   final UserRepository userRepository;
@@ -20,6 +21,16 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       emit(state.copyWith(status: FormStatus.loading));
       final user = await userRepository.getUserData();
       emit(state.copyWith(userModel: user, status: FormStatus.success));
+    } on ErrorModel catch (e) {
+      emit(state.copyWith(status: FormStatus.error, errorMessage: e.message));
+    }
+  }
+
+  Future<void> _putUserData(PutUserData event, emit) async {
+    try {
+      emit(state.copyWith(status: FormStatus.loading));
+      await userRepository.updateUserData(event.userModel);
+      emit(state.copyWith(status: FormStatus.success));
     } on ErrorModel catch (e) {
       emit(state.copyWith(status: FormStatus.error, errorMessage: e.message));
     }

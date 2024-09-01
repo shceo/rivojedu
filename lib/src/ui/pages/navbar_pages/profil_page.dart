@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:edu/assets/constants/common_assets.dart';
 import 'package:edu/src/domain/blocs/user_bloc/user_bloc.dart';
+import 'package:edu/src/ui/pages/screens/update_user_data/update_user_data.dart';
 import 'package:edu/src/ui/theme/app_themes.dart';
 import 'package:edu/src/widgets/edit_password_item.dart';
 import 'package:edu/src/widgets/image_dialog.dart';
 import 'package:edu/src/widgets/password_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -108,12 +108,37 @@ class _ProfilePageState extends State<ProfilePage> {
                       width: 1.w,
                     ),
                   ),
-                  child: Text(
-                    "${state.userModel.name} ${state.userModel.surname}",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.w,
-                        fontWeight: FontWeight.w500),
+                  child: Row(
+                    children: [
+                      Text(
+                        "${state.userModel.name} ${state.userModel.surname}",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.w,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context, rootNavigator: true).push(
+                            MaterialPageRoute(
+                              builder: (context) => UpdateUserDataScreen(
+                                title: "Ism Familya",
+                                hintTextOne: "Ism",
+                                hintTextTwo: "Familya",
+                                userModel: state.userModel,
+                              ),
+                            ),
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          CommonAssets.editPencil,
+                          width: 20.w,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      10.horizontalSpace
+                    ],
                   ),
                 ),
                 27.verticalSpace,
