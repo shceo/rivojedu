@@ -24,7 +24,7 @@ class DarsItem extends StatelessWidget {
           text,
           style: TextStyle(
               color: tap ? Colors.white : Colors.black,
-              fontSize: 15.w,
+              fontSize: 13.w,
               fontWeight: FontWeight.w700),
         ),
       ),

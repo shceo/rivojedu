@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 fit: BoxFit.cover,
                               )
                             : CircleAvatar(
-                                radius: 40.r,
+                                radius: 30.r,
                                 backgroundImage: CachedNetworkImageProvider(
                                     state.userModel.avatar)),
                         Positioned(
@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             },
                             child: SvgPicture.asset(
                               CommonAssets.editPen,
-                              width: 25.w,
+                              width: 20.w,
                               fit: BoxFit.cover,
                             ),
                           ),
